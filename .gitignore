@@ -1,0 +1,25 @@
+# AWS SAM
+.aws-sam/
+
+# AWS credentials
+.aws/
+
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Serverless Framework
+.serverless/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
