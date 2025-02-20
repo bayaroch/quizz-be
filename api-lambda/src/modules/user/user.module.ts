@@ -1,6 +1,6 @@
 import { DynamooseModule } from 'nestjs-dynamoose';
-// import { ConfigService } from 'src/config.service';
 
+// import { ConfigService } from 'src/config.service';
 import { Module } from '@nestjs/common';
 
 import { UserResolver } from '@modules/user/resolver/user.resolver';
@@ -13,7 +13,7 @@ import { UserController } from './controller/user.controller';
   imports: [
     DynamooseModule.forFeature([
       {
-        name: 'kommai-stack-dev-main-user-table',
+        name: 'quiz-stack-dev-main-user-table',
         schema: UserSchema,
         options: {
           create: true,

@@ -1,17 +1,18 @@
 import { InjectModel, Model } from 'nestjs-dynamoose';
 import { errors } from 'src/error-constants';
+import * as uuid from 'uuid';
 
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
 import { Quiz, QuizKey } from '@modules/quiz/model/quiz.model';
+
 import { CreateQuizInput } from '../model/create.input';
 import { UpdateQuizInput } from '../model/update.input';
-import * as uuid from 'uuid';
 
 @Injectable()
 export class QuizService {
   constructor(
-    @InjectModel('kommai-stack-dev-main-quiz-table')
+    @InjectModel('quiz-stack-dev-main-quiz-table')
     private readonly quizModel: Model<Quiz, QuizKey>,
   ) {}
 
@@ -121,6 +122,7 @@ export class QuizService {
       let items: Quiz[] = [];
 
       try {
+        // @ts-expect-error - dynamoose type definition issue
         items = result.toJSON();
       } catch (jsonError) {
         console.error('JSON conversion error:', jsonError);

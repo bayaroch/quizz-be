@@ -187,7 +187,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./api-lambda
-      Handler: dist/main.handler
+      Handler: dist/src/index.handler
       Runtime: nodejs20.x
       MemorySize: 512
       Timeout: 300
@@ -281,38 +281,37 @@ Resources:
       SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ResultApiGateway}/*/*"
 
   # 5. Custom Domains
-  # umcomment after buy dommain
-  # ApiGatewayDomain:
-  #   Type: AWS::ApiGateway::DomainName
-  #   Properties:
-  #     DomainName: !Sub "api.quizz.mn"
-  #     RegionalCertificateArn: arn:aws:acm:us-east-1:YOUR_ACCOUNT_ID:certificate/YOUR_CERTIFICATE_ID
-  #     EndpointConfiguration:
-  #       Types:
-  #         - REGIONAL
+  ApiGatewayDomain:
+    Type: AWS::ApiGateway::DomainName
+    Properties:
+      DomainName: api.appquizz.com
+      RegionalCertificateArn: arn:aws:acm:us-east-1:535002852577:certificate/fe441473-ae19-4925-a6b0-39fd1d804035
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
 
-  # ResultApiGatewayDomain:
-  #   Type: AWS::ApiGateway::DomainName
-  #   Properties:
-  #     DomainName: !Sub "result.quizz.mn"
-  #     RegionalCertificateArn: arn:aws:acm:us-east-1:YOUR_ACCOUNT_ID:certificate/YOUR_CERTIFICATE_ID
-  #     EndpointConfiguration:
-  #       Types:
-  #         - REGIONAL
+  ResultApiGatewayDomain:
+    Type: AWS::ApiGateway::DomainName
+    Properties:
+      DomainName: result.appquizz.com
+      RegionalCertificateArn: arn:aws:acm:us-east-1:535002852577:certificate/fe441473-ae19-4925-a6b0-39fd1d804035
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
 
-  # ApiGatewayBasePathMapping:
-  #   Type: AWS::ApiGateway::BasePathMapping
-  #   Properties:
-  #     DomainName: !Ref ApiGatewayDomain
-  #     RestApiId: !Ref ApiGateway
-  #     Stage: !Ref Stage
+  ApiGatewayBasePathMapping:
+    Type: AWS::ApiGateway::BasePathMapping
+    Properties:
+      DomainName: !Ref ApiGatewayDomain
+      RestApiId: !Ref ApiGateway
+      Stage: !Ref Stage
 
-  # ResultApiGatewayBasePathMapping:
-  #   Type: AWS::ApiGateway::BasePathMapping
-  #   Properties:
-  #     DomainName: !Ref ResultApiGatewayDomain
-  #     RestApiId: !Ref ResultApiGateway
-  #     Stage: !Ref Stage
+  ResultApiGatewayBasePathMapping:
+    Type: AWS::ApiGateway::BasePathMapping
+    Properties:
+      DomainName: !Ref ResultApiGatewayDomain
+      RestApiId: !Ref ResultApiGateway
+      Stage: !Ref Stage
 
   # 6. CloudFront Distribution
   CloudFrontDistribution:

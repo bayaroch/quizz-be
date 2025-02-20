@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 
 import { Roles } from '@modules/auth/decorators/roles.decorator';
-import { Role } from '@modules/auth/enums/role.enum';
 
+import { Role } from '../../auth/enums/role.enum';
 import { CreateQuizInput } from '../model/create.input';
 import { UpdateQuizInput } from '../model/update.input';
 import { QuizService } from '../service/quiz.service';

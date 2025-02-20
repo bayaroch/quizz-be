@@ -1,11 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
 
 import { Roles } from '@modules/auth/decorators/roles.decorator';
-import { CurrentUser } from '@modules/auth/decorators/user.decorator';
-import { Role } from '@modules/auth/enums/role.enum';
-
-import { UserInput } from '@modules/user/model/user-input';
 import { UserService } from '@modules/user/service/user.service';
+
+import { CurrentUser } from '../../auth/decorators/user.decorator';
+import { Role } from '../../auth/enums/role.enum';
+import { UserInput } from '../model/user-input';
 
 @Controller('user')
 export class UserController {

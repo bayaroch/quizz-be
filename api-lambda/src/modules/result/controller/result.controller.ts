@@ -1,11 +1,11 @@
 import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 
+import { Public } from '@modules/auth/decorators/public.decorator';
 import { Roles } from '@modules/auth/decorators/roles.decorator';
-import { Role } from '@modules/auth/enums/role.enum';
 
+import { Role } from '../../auth/enums/role.enum';
 import { CreateResultInput } from '../model/create.input';
 import { ResultService } from '../service/result.service';
-import { Public } from '@modules/auth/decorators/public.decorator';
 
 @Controller('result')
 export class ResultController {

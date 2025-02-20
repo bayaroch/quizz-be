@@ -10,7 +10,7 @@ import { ResultService } from './service/result.service';
   imports: [
     DynamooseModule.forFeature([
       {
-        name: 'kommai-stack-dev-main-result-table',
+        name: 'quiz-stack-dev-main-result-table',
         schema: ResultSchema,
         options: {
           create: true,

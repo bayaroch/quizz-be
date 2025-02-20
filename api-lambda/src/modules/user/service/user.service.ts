@@ -9,7 +9,7 @@ import { User, UserKey } from '@modules/user/model/user.model';
 @Injectable()
 export class UserService extends TransactionSupport {
   constructor(
-    @InjectModel('kommai-stack-dev-main-user-table')
+    @InjectModel('quiz-stack-dev-main-user-table')
     private readonly userModel: Model<User, UserKey>,
   ) {
     super();

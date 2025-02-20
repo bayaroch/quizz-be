@@ -10,7 +10,7 @@ import { QuizService } from './service/quiz.service';
   imports: [
     DynamooseModule.forFeature([
       {
-        name: 'kommai-stack-dev-main-quiz-table',
+        name: 'quiz-stack-dev-main-quiz-table',
         schema: QuizSchema,
         options: {
           create: true,
