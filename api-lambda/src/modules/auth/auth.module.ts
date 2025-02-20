@@ -1,4 +1,4 @@
-// import { ConfigService } from 'src/config.service';
+import { ConfigService } from 'src/config.service';
 
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
@@ -25,7 +25,7 @@ import { AuthService } from '@modules/auth/service/auth.service';
       provide: APP_GUARD,
       useClass: AuthGuard,
     },
-    // ConfigService,
+    ConfigService,
   ],
   controllers: [AuthController],
   exports: [AuthService],

@@ -1,14 +1,20 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AuthModule } from '@modules/auth/auth.module';
 import { UserModule } from '@modules/user/user.module';
+import { QuizModule } from '@modules/quiz/quiz.module';
 import { DynamooseModule } from 'nestjs-dynamoose';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ConfigService } from './config.service';
+import { ConfigModule } from '@nestjs/config';
+import { SSMConfigFactory } from './ssm-config.factory';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [SSMConfigFactory],
+    }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
@@ -25,8 +31,8 @@ import { GraphQLModule } from '@nestjs/graphql';
     }),
     AuthModule,
     UserModule,
+    QuizModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  providers: [ConfigService],
 })
 export class AppModule {}

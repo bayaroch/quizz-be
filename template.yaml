@@ -1,1 +1,400 @@
-# TODO
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Parameters:
+  Stage:
+    Type: String
+    Default: dev
+  QpayClientIdParameter:
+    Type: String
+    Default: "/param/quiz-stack/QPAY_CLIENT_ID"
+  QpayClientSecretParameter:
+    Type: String
+    Default: "/param/quiz-stack/QPAY_CLIENT_SECRET"
+  QpayInvoiceCodeParameter:
+    Type: String
+    Default: "/param/quiz-stack/QPAY_INVOICE_CODE"
+  QpayUrlParameter:
+    Type: String
+    Default: "/param/quiz-stack/QPAY_URL"
+  BaseUrlParameter:
+    Type: String
+    Default: "/param/quiz-stack/BASE_URL"
+
+Resources:
+  # 1. S3 Buckets
+  ImagesBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${AWS::StackName}-images-${AWS::AccountId}-${AWS::Region}"
+      VersioningConfiguration:
+        Status: Enabled
+
+  QuizBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${AWS::StackName}-quiz-${AWS::AccountId}-${AWS::Region}"
+      VersioningConfiguration:
+        Status: Enabled
+
+  ResultBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${AWS::StackName}-result-${AWS::AccountId}-${AWS::Region}"
+      VersioningConfiguration:
+        Status: Enabled
+      LifecycleConfiguration:
+        Rules:
+          - Id: ResultExpirationRule
+            Status: Enabled
+            Transitions:
+              - TransitionInDays: 7
+                StorageClass: GLACIER
+            ExpirationInDays: 60
+
+  ApiLambdaBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${AWS::StackName}-api-lambda-${AWS::AccountId}-${AWS::Region}"
+      VersioningConfiguration:
+        Status: Enabled
+
+  HandlerLambdaBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${AWS::StackName}-handler-lambda-${AWS::AccountId}-${AWS::Region}"
+      VersioningConfiguration:
+        Status: Enabled
+
+  # 2. IAM Roles
+  ApiLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: ApiLambdaPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: arn:aws:logs:*:*:*
+              - Effect: Allow
+                Action:
+                  - dynamodb:GetItem
+                  - dynamodb:PutItem
+                  - dynamodb:UpdateItem
+                  - dynamodb:DeleteItem
+                  - dynamodb:Scan
+                  - dynamodb:Query
+                  - dynamodb:DescribeTable
+                  - dynamodb:UpdateTable
+                  - dynamodb:CreateTable
+                Resource:
+                  - !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${AWS::StackName}-${Stage}-*"
+              - Effect: Allow
+                Action:
+                  - lambda:InvokeFunction
+                Resource: !GetAtt HandlerLambdaFunction.Arn
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                  - s3:ListBucket
+                Resource:
+                  - !Sub "${ImagesBucket.Arn}/*"
+                  - !Sub "${QuizBucket.Arn}/*"
+                  - !Sub "${ResultBucket.Arn}/*"
+                  - !Sub "${ApiLambdaBucket.Arn}/*"
+                  - !Sub "${ImagesBucket.Arn}"
+                  - !Sub "${QuizBucket.Arn}"
+                  - !Sub "${ResultBucket.Arn}"
+                  - !Sub "${ApiLambdaBucket.Arn}"
+              - Effect: Allow
+                Action:
+                  - ssm:GetParameter
+                  - ssm:GetParameters
+                Resource: !Sub "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/param/${AWS::StackName}/*"
+
+  HandlerLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: HandlerLambdaPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: arn:aws:logs:*:*:*
+              - Effect: Allow
+                Action:
+                  - dynamodb:GetItem
+                  - dynamodb:PutItem
+                  - dynamodb:UpdateItem
+                  - dynamodb:DeleteItem
+                  - dynamodb:Scan
+                  - dynamodb:Query
+                  - dynamodb:DescribeTable
+                  - dynamodb:UpdateTable
+                  - dynamodb:BatchWriteItem
+                Resource:
+                  - !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${AWS::StackName}-${Stage}-*"
+                  - !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${AWS::StackName}-${Stage}-*/index/*"
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                  - s3:ListBucket
+                Resource:
+                  - !Sub "${ImagesBucket.Arn}/*"
+                  - !Sub "${QuizBucket.Arn}/*"
+                  - !Sub "${ResultBucket.Arn}/*"
+                  - !Sub "${HandlerLambdaBucket.Arn}/*"
+                  - !Sub "${ImagesBucket.Arn}"
+                  - !Sub "${QuizBucket.Arn}"
+                  - !Sub "${ResultBucket.Arn}"
+                  - !Sub "${HandlerLambdaBucket.Arn}"
+              - Effect: Allow
+                Action:
+                  - ssm:GetParameter
+                  - ssm:GetParameters
+                Resource: !Sub "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/param/${AWS::StackName}/*"
+
+  # 3. Lambda Functions
+  ApiLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./api-lambda
+      Handler: dist/main.handler
+      Runtime: nodejs20.x
+      MemorySize: 512
+      Timeout: 300
+      Events:
+        ProxyApiRoot:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /{proxy+}
+            Method: ANY
+      Environment:
+        Variables:
+          HANDLER_LAMBDA_ARN: !GetAtt HandlerLambdaFunction.Arn
+          SERVICE: !Ref AWS::StackName
+          STAGE: !Ref Stage
+          REGION: !Ref AWS::Region
+          IMAGES_BUCKET: !Ref ImagesBucket
+          QUIZ_BUCKET: !Ref QuizBucket
+          RESULT_BUCKET: !Ref ResultBucket
+          QPAY_CLIENT_ID_PARAM: !Ref QpayClientIdParameter
+          QPAY_CLIENT_SECRET_PARAM: !Ref QpayClientSecretParameter
+          QPAY_INVOICE_CODE_PARAM: !Ref QpayInvoiceCodeParameter
+          QPAY_URL_PARAM: !Ref QpayUrlParameter
+          BASE_URL_PARAM: !Ref BaseUrlParameter
+      Role: !GetAtt ApiLambdaRole.Arn
+
+  HandlerLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./handler-lambda
+      Handler: dist/index.handler
+      Runtime: nodejs20.x
+      MemorySize: 512
+      Timeout: 300
+      Events:
+        ResultApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ResultApiGateway
+            Path: /{proxy+}
+            Method: ANY
+      Environment:
+        Variables:
+          SERVICE: !Ref AWS::StackName
+          STAGE: !Ref Stage
+          REGION: !Ref AWS::Region
+          IMAGES_BUCKET: !Ref ImagesBucket
+          QUIZ_BUCKET: !Ref QuizBucket
+          RESULT_BUCKET: !Ref ResultBucket
+          QPAY_CLIENT_ID_PARAM: !Ref QpayClientIdParameter
+          QPAY_CLIENT_SECRET_PARAM: !Ref QpayClientSecretParameter
+          QPAY_INVOICE_CODE_PARAM: !Ref QpayInvoiceCodeParameter
+          QPAY_URL_PARAM: !Ref QpayUrlParameter
+      Role: !GetAtt HandlerLambdaRole.Arn
+
+  # 4. API Gateways
+  ApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: !Ref Stage
+      EndpointConfiguration: REGIONAL
+      Cors:
+        AllowMethods: "'*'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+
+  ResultApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: !Ref Stage
+      EndpointConfiguration: REGIONAL
+      Cors:
+        AllowMethods: "'*'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+
+  ApiGatewayPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ApiLambdaFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ApiGateway}/*/*"
+
+  ResultApiGatewayPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref HandlerLambdaFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ResultApiGateway}/*/*"
+
+  # 5. Custom Domains
+  # umcomment after buy dommain
+  # ApiGatewayDomain:
+  #   Type: AWS::ApiGateway::DomainName
+  #   Properties:
+  #     DomainName: !Sub "api.quizz.mn"
+  #     RegionalCertificateArn: arn:aws:acm:us-east-1:YOUR_ACCOUNT_ID:certificate/YOUR_CERTIFICATE_ID
+  #     EndpointConfiguration:
+  #       Types:
+  #         - REGIONAL
+
+  # ResultApiGatewayDomain:
+  #   Type: AWS::ApiGateway::DomainName
+  #   Properties:
+  #     DomainName: !Sub "result.quizz.mn"
+  #     RegionalCertificateArn: arn:aws:acm:us-east-1:YOUR_ACCOUNT_ID:certificate/YOUR_CERTIFICATE_ID
+  #     EndpointConfiguration:
+  #       Types:
+  #         - REGIONAL
+
+  # ApiGatewayBasePathMapping:
+  #   Type: AWS::ApiGateway::BasePathMapping
+  #   Properties:
+  #     DomainName: !Ref ApiGatewayDomain
+  #     RestApiId: !Ref ApiGateway
+  #     Stage: !Ref Stage
+
+  # ResultApiGatewayBasePathMapping:
+  #   Type: AWS::ApiGateway::BasePathMapping
+  #   Properties:
+  #     DomainName: !Ref ResultApiGatewayDomain
+  #     RestApiId: !Ref ResultApiGateway
+  #     Stage: !Ref Stage
+
+  # 6. CloudFront Distribution
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+          - DomainName: !GetAtt ImagesBucket.RegionalDomainName
+            Id: ImagesOrigin
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+          - DomainName: !GetAtt QuizBucket.RegionalDomainName
+            Id: QuizOrigin
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+          - DomainName: !GetAtt ResultBucket.RegionalDomainName
+            Id: ResultOrigin
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+        Enabled: true
+        DefaultCacheBehavior:
+          TargetOriginId: ImagesOrigin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+          CachedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+          Compress: true
+        CacheBehaviors:
+          - PathPattern: "/quiz/*"
+            TargetOriginId: QuizOrigin
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            CachedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            ForwardedValues:
+              QueryString: false
+              Cookies:
+                Forward: none
+            Compress: true
+          - PathPattern: "/result/*"
+            TargetOriginId: ResultOrigin
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            CachedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            ForwardedValues:
+              QueryString: false
+              Cookies:
+                Forward: none
+            Compress: true
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+
+Outputs:
+  ApiUrl:
+    Value: !Sub "https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/${Stage}/"
+  ResultApiUrl:
+    Value: !Sub "https://${ResultApiGateway}.execute-api.${AWS::Region}.amazonaws.com/${Stage}/"
+  CloudFrontDomain:
+    Value: !GetAtt CloudFrontDistribution.DomainName
+  ImagesBucketName:
+    Value: !Ref ImagesBucket
+  QuizBucketName:
+    Value: !Ref QuizBucket
+  ResultBucketName:
+    Value: !Ref ResultBucket

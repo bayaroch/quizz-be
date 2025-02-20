@@ -1,0 +1,11 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "quiz-stack"
+resolve_s3 = true
+s3_prefix = "quiz-stack"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+parameter_overrides = "Stage=\"dev\" QpayClientIdParameter=\"/param/kommai-stack/QPAY_CLIENT_ID\" QpayClientSecretParameter=\"/param/kommai-stack/QPAY_CLIENT_SECRET\" QpayInvoiceCodeParameter=\"/param/kommai-stack/QPAY_INVOICE_CODE\" QpayUrlParameter=\"/param/kommai-stack/QPAY_URL\" BaseUrlParameter=\"/param/kommai-stack/BASE_URL\""
+image_repositories = []
