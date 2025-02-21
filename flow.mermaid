@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant U as User (Next.js)
+  participant L as Lambda (AWS)
+  participant P as Payment Service
+
+  U->>U: Complete Quiz (Wizard)
+  U->>L: POST /submit (formData)
+  L->>L: Generate Short & Full Result
+  L->>P: Create Invoice (invoiceId)
+  L-->>U: { resultId, invoiceId, shortResult, fullResult }
+  U->>U: Display Short Result
+  U->>P: Pay Invoice
+  P-->>U: Payment Success
+  U->>U: Display Full Result
