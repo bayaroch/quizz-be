@@ -7,6 +7,10 @@ export class UpdateQuizInput {
 
   @IsOptional()
   @IsString()
+  quiz_identifier: string;
+
+  @IsOptional()
+  @IsString()
   data_uri: string;
 
   @IsOptional()

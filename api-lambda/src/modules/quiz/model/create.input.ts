@@ -8,6 +8,9 @@ export class CreateQuizInput {
   data_uri: string;
 
   @IsString()
+  quiz_identifier: string;
+
+  @IsString()
   status: 'draft' | 'published';
 
   @IsString()

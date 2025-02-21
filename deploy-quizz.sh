@@ -27,28 +27,6 @@ cd .. || { echo "Failed to navigate back to root directory. Exiting."; exit 1; }
 # Navigate to the api-lambda directory
 echo "Navigating to api-lambda directory..."
 
-cd handler-lambda || { echo "Failed to navigate to handler-lambda directory. Exiting."; exit 1; }
-
-# Clean tsbuildinfo
-echo "Cleaning .tsbuildinfo..."
-rm -rf .tsbuildinfo
-
-# Run the NestJS build
-echo "Running NestJS build..."
-yarn build
-
-# Check if the build was successful
-if [ $? -eq 0 ]; then
-    echo "NestJS build completed successfully."
-else
-    echo "NestJS build failed. Exiting."
-    exit 1
-fi
-
-# Go back to the root directory
-echo "Navigating back to the root directory..."
-cd .. || { echo "Failed to navigate back to root directory. Exiting."; exit 1; }
-
 # Run the SAM build
 echo "Running SAM build..."
 sam build

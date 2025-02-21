@@ -12,9 +12,10 @@ export class ResultController {
   constructor(private readonly resultService: ResultService) {}
 
   // Public route
-  @Post()
   @Public()
+  @Post()
   create(@Body() createResultInput: CreateResultInput) {
+    console.log('asdf');
     return this.resultService.create(createResultInput);
   }
 
@@ -26,7 +27,7 @@ export class ResultController {
 
   @Get(':id')
   @Roles(Role.ADMIN)
-  findOne(@Param(':id') resultId: string) {
+  findOne(@Param('id') resultId: string) {
     return this.resultService.findOne(resultId);
   }
 }

@@ -21,6 +21,7 @@ export class QuizService {
       const params = {
         quiz_uuid: uuid.v4(),
         name: createQuizInput.name,
+        quiz_identifier: createQuizInput.quiz_identifier,
         data_uri: createQuizInput.data_uri,
         status: createQuizInput.status,
         user_uuid: createQuizInput.user_uuid,
@@ -168,6 +169,7 @@ export class QuizService {
 
   async findOne(quiz_id: string): Promise<{ data: Quiz }> {
     try {
+      console.log('quiz_id', quiz_id);
       const result = await this.quizModel.query('quiz_uuid').eq(quiz_id).exec();
 
       if (result.length <= 0) {
@@ -178,6 +180,7 @@ export class QuizService {
         data: result[0],
       };
     } catch (error) {
+      console.log('error', error);
       if (error instanceof HttpException) {
         throw error;
       }
@@ -199,6 +202,9 @@ export class QuizService {
       // Only add fields to updateParams if they are provided in updateQuizInput
       if (updateQuizInput.name !== undefined) {
         updateParams.name = updateQuizInput.name;
+      }
+      if (updateQuizInput.quiz_identifier !== undefined) {
+        updateParams.quiz_identifier = updateQuizInput.quiz_identifier;
       }
       if (updateQuizInput.data_uri !== undefined) {
         updateParams.data_uri = updateQuizInput.data_uri;

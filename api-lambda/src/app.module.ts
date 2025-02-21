@@ -1,12 +1,17 @@
-import { Module } from '@nestjs/common';
-import { AuthModule } from '@modules/auth/auth.module';
-import { UserModule } from '@modules/user/user.module';
-import { QuizModule } from '@modules/quiz/quiz.module';
 import { DynamooseModule } from 'nestjs-dynamoose';
+
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { GraphQLModule } from '@nestjs/graphql';
-import { ConfigService } from './config.service';
+import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { GraphQLModule } from '@nestjs/graphql';
+
+import { AuthModule } from '@modules/auth/auth.module';
+import { QuizModule } from '@modules/quiz/quiz.module';
+import { ResultModule } from '@modules/result/result.module';
+import { S3Module } from '@modules/s3/s3.module';
+import { UserModule } from '@modules/user/user.module';
+
+import { ConfigService } from './config.service';
 import { SSMConfigFactory } from './ssm-config.factory';
 
 @Module({
@@ -32,6 +37,8 @@ import { SSMConfigFactory } from './ssm-config.factory';
     AuthModule,
     UserModule,
     QuizModule,
+    S3Module,
+    ResultModule,
   ],
   providers: [ConfigService],
 })

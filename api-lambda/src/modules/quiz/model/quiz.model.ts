@@ -13,6 +13,9 @@ export class Quiz {
   name: string;
 
   @Field()
+  quiz_identifier: string;
+
+  @Field()
   data_uri: string;
 
   @Field()

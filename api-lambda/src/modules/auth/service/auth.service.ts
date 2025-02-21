@@ -1,13 +1,13 @@
-import { OAuth2Client } from 'google-auth-library';
+// import { OAuth2Client } from 'google-auth-library';
 import { errors } from 'src/error-constants';
 import * as uuid from 'uuid';
 
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { User } from '@modules/user/model/user.model';
-import { UserService } from '@modules/user/service/user.service';
 
 import { GoogleLoginInput } from '@modules/auth/model/google-login.input';
+import { User } from '@modules/user/model/user.model';
+import { UserService } from '@modules/user/service/user.service';
 
 @Injectable()
 export class AuthService {
@@ -21,10 +21,17 @@ export class AuthService {
     access_token: string;
   }> {
     const google_access_token = body.google_access_token;
+    console.log(google_access_token);
     try {
       // check oauth
       // get user data
-      const googleData = await this.authenticateWithGoogle(google_access_token);
+      // const googleData = await this.authenticateWithGoogle(google_access_token);
+      const googleData = {
+        email: 'test@test.com',
+        given_name: 'testuser',
+        family_name: 'family',
+        picture: 'test.jpg',
+      };
 
       console.log('google data', googleData);
 
@@ -43,7 +50,9 @@ export class AuthService {
         const userDataToCreate = {
           uuid: newUuid,
           email: googleData.email,
-          role: 'user',
+          // TODO Just for test
+          role: 'admin',
+          // role: 'user',
           first_name: googleData.given_name || 'noname',
           last_name: googleData.family_name || 'noname',
           status: 'active',
@@ -56,7 +65,9 @@ export class AuthService {
         // Update User
         const userDataToUpdate = {
           email: googleData.email,
-          role: 'user',
+          // TODO Just for test
+          role: 'admin',
+          // role: 'user',
           first_name: googleData.given_name || 'noname',
           last_name: googleData.family_name || 'noname',
         };
@@ -79,23 +90,24 @@ export class AuthService {
   }
 
   // Private methods
-  private async authenticateWithGoogle(token: string): Promise<any> {
-    try {
-      const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+  // private async authenticateWithGoogle(token: string): Promise<any> {
+  //   try {
+  //     const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
-      const ticket = await client.verifyIdToken({
-        idToken: token,
-        audience: process.env.GOOGLE_CLIENT_ID,
-      });
+  //     const ticket = await client.verifyIdToken({
+  //       idToken: token,
+  //       audience: process.env.GOOGLE_CLIENT_ID,
+  //     });
 
-      const payload = ticket.getPayload();
+  //     const payload = ticket.getPayload();
 
-      return payload;
-    } catch (error: any) {
-      throw new HttpException(
-        { ...errors.google_api, message: error.message },
-        HttpStatus.UNPROCESSABLE_ENTITY,
-      );
-    }
-  }
+  //     return payload;
+  //   } catch (error: any) {
+
+  //     throw new HttpException(
+  //       { ...errors.google_api, message: error.message },
+  //       HttpStatus.UNPROCESSABLE_ENTITY,
+  //     );
+  //   }
+  // }
 }

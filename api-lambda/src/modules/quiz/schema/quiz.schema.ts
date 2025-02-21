@@ -8,6 +8,7 @@ export const QuizSchema = new Schema(
     },
     name: String,
     data_uri: String,
+    quiz_identifier: String,
     status: String,
     // GSI must be
     user_uuid: {

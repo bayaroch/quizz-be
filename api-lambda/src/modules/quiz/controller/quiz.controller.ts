@@ -34,22 +34,21 @@ export class QuizController {
 
   @Get(':id')
   @Roles(Role.ADMIN)
-  findOne(@Param(':id') quizId: string) {
-    return this.quizService.findOne(quizId);
+  findOne(@Param('id') id: string) {
+    console.log('get', id);
+    return this.quizService.findOne(id);
   }
 
   @Put(':id')
   @Roles(Role.ADMIN)
-  update(
-    @Param(':id') quizId: string,
-    @Body() updateQuizInput: UpdateQuizInput,
-  ) {
-    return this.quizService.update(quizId, updateQuizInput);
+  update(@Param('id') id: string, @Body() updateQuizInput: UpdateQuizInput) {
+    console.log('1111', id);
+    return this.quizService.update(id, updateQuizInput);
   }
 
   @Delete(':id')
   @Roles(Role.ADMIN)
-  remove(@Param(':id') quizId: string) {
-    return this.quizService.remove(quizId);
+  remove(@Param('id') id: string) {
+    return this.quizService.remove(id);
   }
 }
