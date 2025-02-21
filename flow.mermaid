@@ -8,7 +8,7 @@ sequenceDiagram
   L->>L: Generate Short & Full Result
   L->>P: Create Invoice (invoiceId)
   L-->>U: { resultId, invoiceId }
-  U->>U: Display Short Result
+  U->>U: Display Short Result (get result by Id) / and Payment QR
   U->>P: Pay Invoice
   P-->>U: Payment Success
   U->>U: Display Full Result
