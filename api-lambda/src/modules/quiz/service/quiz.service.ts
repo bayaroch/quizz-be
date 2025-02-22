@@ -28,6 +28,7 @@ export class QuizService {
         profile_image: createQuizInput.profile_image,
         description: createQuizInput.description,
         tag: createQuizInput.tag,
+        price: createQuizInput.price,
       };
 
       const newQuiz = await this.quizModel.create(params);
@@ -266,6 +267,166 @@ export class QuizService {
         quiz_uuid: quizId,
       });
     } catch (error: any) {
+      if (error instanceof HttpException) {
+        throw error;
+      }
+
+      throw new HttpException(
+        errors.not_received,
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
+  }
+
+  async findAllSeo(
+    limit: number,
+    lastKey?: string,
+  ): Promise<{
+    data: Partial<Quiz>[];
+    meta: {
+      last_key: string | null;
+      total_count: number;
+    };
+  }> {
+    try {
+      // Validate and parse limit
+      const parsedLimit = parseInt(limit as any, 10);
+
+      let result;
+      try {
+        let scanOperation;
+        if (parsedLimit === -1) {
+          scanOperation = this.quizModel.scan(); // No limit applied
+        } else if (parsedLimit > 0) {
+          scanOperation = this.quizModel.scan().limit(parsedLimit);
+        } else {
+          throw new HttpException(
+            errors.invalid_limit,
+            HttpStatus.UNPROCESSABLE_ENTITY,
+          );
+        }
+
+        // Handle pagination with proper error handling for lastKey
+        if (lastKey) {
+          try {
+            const decodedKey = Buffer.from(lastKey, 'base64').toString('ascii');
+            console.log('decodedKey', decodedKey);
+            const startKey = JSON.parse(decodedKey);
+
+            // Validate the startKey structure
+            if (startKey && typeof startKey === 'object') {
+              scanOperation = scanOperation.startAt(startKey);
+            } else {
+              throw new Error('Invalid lastKey format');
+            }
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          } catch (parseError: any) {
+            throw new HttpException(
+              {
+                ...errors.quiz_model_related_error,
+                message: 'Invalid lastKey format',
+              },
+              HttpStatus.BAD_REQUEST,
+            );
+          }
+        }
+
+        result = await scanOperation.exec();
+      } catch (error: any) {
+        console.error('Query operation error:', error);
+
+        // Check for specific DynamoDB errors
+        if (error.name === 'SerializationException') {
+          throw new HttpException(
+            {
+              ...errors.quiz_model_related_error,
+              message: 'Invalid data type in scan parameters',
+            },
+            HttpStatus.BAD_REQUEST,
+          );
+        }
+
+        throw new HttpException(
+          {
+            ...errors.quiz_model_related_error,
+            message: 'Error executing scan operation',
+          },
+          HttpStatus.UNPROCESSABLE_ENTITY,
+        );
+      }
+
+      // Safely convert results to JSON
+      let items: Partial<Quiz>[] = [];
+
+      try {
+        // @ts-expect-error - dynamoose type definition issue
+        items = result.toJSON();
+
+        // i'd like to get only quiz_uuid
+        items = items.map((item) => {
+          return {
+            quiz_uuid: item.quiz_uuid,
+          };
+        });
+      } catch (jsonError) {
+        console.error('JSON conversion error:', jsonError);
+        throw new HttpException(
+          {
+            ...errors.quiz_model_related_error,
+            message: 'Error converting scan results',
+          },
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
+      }
+
+      // Generate lastKey safely
+      let encodedLastKey: string | null = null;
+      if (result.lastKey) {
+        try {
+          encodedLastKey = Buffer.from(JSON.stringify(result.lastKey)).toString(
+            'base64',
+          );
+        } catch (encodeError) {
+          console.error('LastKey encoding error:', encodeError);
+        }
+      }
+
+      return {
+        data: items,
+        meta: {
+          last_key: encodedLastKey,
+          total_count: items.length,
+        },
+      };
+    } catch (error) {
+      if (error instanceof HttpException) {
+        throw error;
+      }
+
+      throw new HttpException(
+        errors.not_received,
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
+  }
+
+  async findOneSeo(quiz_id: string): Promise<{ data: Partial<Quiz> }> {
+    try {
+      const result = await this.quizModel
+        .query('quiz_uuid')
+        .attributes(['name', 'profile_image', 'description'])
+        .eq(quiz_id)
+        .exec();
+
+      if (result.length <= 0) {
+        throw new HttpException(errors.not_found, HttpStatus.NOT_FOUND);
+      }
+
+      return {
+        data: result[0],
+      };
+    } catch (error) {
+      console.log('error', error);
       if (error instanceof HttpException) {
         throw error;
       }

@@ -2,23 +2,58 @@ import { InjectModel, Model } from 'nestjs-dynamoose';
 import { errors } from 'src/error-constants';
 import * as uuid from 'uuid';
 
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+  forwardRef,
+} from '@nestjs/common';
 
+import { QuizService } from '@modules/quiz/service/quiz.service';
 import { Result, ResultKey } from '@modules/result/model/result.model';
 
+import { HandlerService } from '../handler/index.handler';
+import { CreateInvoiceInput } from '../model/create-invoice.input';
 import { CreateResultInput } from '../model/create.input';
+import { Transaction, TransactionKey } from '../model/transaction.model';
+import { QpayService } from './qpay.service';
+
+export interface QpayResponse {
+  invoice_id: string;
+  qr_text: string;
+  qr_image: string;
+  urls: {
+    name: string;
+    description: string;
+    link: string;
+  }[];
+}
 
 @Injectable()
 export class ResultService {
+  // pending -> qpay invoice created
+  static readonly TRANSACTION_STATUS_PENDING = 'pending';
+  // paid -> qpay invoice paid
+  static readonly TRANSACTION_STATUS_PAID = 'paid';
+
   constructor(
     @InjectModel('quiz-stack-dev-main-result-table')
     private readonly resultModel: Model<Result, ResultKey>,
+    @InjectModel('quiz-stack-dev-main-transaction-table')
+    private readonly transactionModel: Model<Transaction, TransactionKey>,
+    private quizService: QuizService,
+    @Inject(forwardRef(() => QpayService))
+    private qpayService: QpayService,
   ) {}
 
   async create(
     createResultInput: CreateResultInput,
   ): Promise<{ data: Omit<Result, 'answer'> }> {
     try {
+      const handlerService = new HandlerService();
+      await handlerService.process('processGymHandler');
+
       // TODO first process works then save to table
       const result_uri = '';
       const result_experpt = '';
@@ -192,6 +227,99 @@ export class ResultService {
         throw error;
       }
 
+      throw new HttpException(
+        errors.not_received,
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
+  }
+
+  async createInvoice(
+    createInvoiceInput: CreateInvoiceInput,
+  ): Promise<{ data: QpayResponse }> {
+    try {
+      const { result_id: resultId } = createInvoiceInput;
+      const { data: currentResult } = await this.findOne(resultId);
+
+      const { data: currentQuiz } = await this.quizService.findOne(
+        currentResult.quiz_uuid,
+      );
+
+      const qpayResult = await this.qpayService.process_transaction_payment(
+        currentResult.result_uuid,
+        currentQuiz.name,
+        currentQuiz.price,
+      );
+
+      await this.transactionModel.create({
+        result_uuid: resultId,
+        status: 'pending',
+        quiz_uuid: currentResult.quiz_uuid,
+        qpay_invoice_id: qpayResult.invoice_id,
+        amount: currentQuiz.price,
+      });
+
+      return {
+        data: qpayResult,
+      };
+    } catch (error) {
+      if (error instanceof HttpException) {
+        throw error;
+      }
+
+      throw new HttpException(
+        errors.not_received,
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
+  }
+
+  async updateTransactionStatus(resultId: string): Promise<void> {
+    try {
+      const currentTransaction = await this.transactionModel
+        .query('result_uuid')
+        .eq(resultId)
+        .exec();
+
+      if (currentTransaction.length <= 0) {
+        throw new HttpException(errors.not_found, HttpStatus.NOT_FOUND);
+      }
+
+      await this.transactionModel.update(
+        {
+          result_uuid: resultId,
+        },
+        {
+          status: 'paid',
+        },
+      );
+    } catch (error) {
+      if (error instanceof HttpException) {
+        throw error;
+      }
+
+      throw new HttpException(
+        errors.not_received,
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
+  }
+
+  async getTransactionDetail(resultId: string): Promise<{ data: Transaction }> {
+    try {
+      const result = await this.transactionModel
+        .query('result_id')
+        .eq(resultId)
+        .exec();
+
+      if (result.length <= 0) {
+        throw new HttpException(errors.not_found, HttpStatus.NOT_FOUND);
+      }
+
+      return {
+        data: result[0],
+      };
+    } catch (error: any) {
       throw new HttpException(
         errors.not_received,
         HttpStatus.UNPROCESSABLE_ENTITY,

@@ -3,7 +3,7 @@ import { GetParameterCommand, SSMClient } from '@aws-sdk/client-ssm';
 import { Logger } from '@nestjs/common';
 
 const loadValueFromSSM = async (name: string) => {
-  const ssm = new SSMClient({ region: process.env.REGION });
+  const ssm = new SSMClient({ region: process.env.AWS_REGION });
   const command = new GetParameterCommand({
     Name: name,
     WithDecryption: true,
@@ -19,6 +19,9 @@ export const SSMConfigFactory = async () => {
     'QPAY_CLIENT_SECRET_PARAM',
     'QPAY_CLIENT_ID_PARAM',
     'BASE_URL_PARAM',
+    'GOOGLE_CLIENT_ID_PARAM',
+    'GOOGLE_CLIENT_SECRET_PARAM',
+    'AWS_REGION_PARAM',
   ];
 
   for (const param of ssmParams) {

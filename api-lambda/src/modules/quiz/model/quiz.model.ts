@@ -32,4 +32,7 @@ export class Quiz {
 
   @Field()
   tag: string;
+
+  @Field()
+  price: number;
 }

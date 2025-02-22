@@ -1,4 +1,5 @@
-// import { OAuth2Client } from 'google-auth-library';
+import { OAuth2Client } from 'google-auth-library';
+import { ConfigService } from 'src/config.service';
 import { errors } from 'src/error-constants';
 import * as uuid from 'uuid';
 
@@ -14,6 +15,7 @@ export class AuthService {
   constructor(
     private userService: UserService,
     private jwtService: JwtService,
+    private configService: ConfigService,
   ) {}
 
   // Login/SignUp
@@ -25,13 +27,7 @@ export class AuthService {
     try {
       // check oauth
       // get user data
-      // const googleData = await this.authenticateWithGoogle(google_access_token);
-      const googleData = {
-        email: 'test@test.com',
-        given_name: 'testuser',
-        family_name: 'family',
-        picture: 'test.jpg',
-      };
+      const googleData = await this.authenticateWithGoogle(google_access_token);
 
       console.log('google data', googleData);
 
@@ -90,24 +86,23 @@ export class AuthService {
   }
 
   // Private methods
-  // private async authenticateWithGoogle(token: string): Promise<any> {
-  //   try {
-  //     const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+  private async authenticateWithGoogle(token: string): Promise<any> {
+    try {
+      const client = new OAuth2Client(this.configService.googleClientId);
 
-  //     const ticket = await client.verifyIdToken({
-  //       idToken: token,
-  //       audience: process.env.GOOGLE_CLIENT_ID,
-  //     });
+      const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: this.configService.googleClientId,
+      });
 
-  //     const payload = ticket.getPayload();
+      const payload = ticket.getPayload();
 
-  //     return payload;
-  //   } catch (error: any) {
-
-  //     throw new HttpException(
-  //       { ...errors.google_api, message: error.message },
-  //       HttpStatus.UNPROCESSABLE_ENTITY,
-  //     );
-  //   }
-  // }
+      return payload;
+    } catch (error: any) {
+      throw new HttpException(
+        { ...errors.google_api, message: error.message },
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
+  }
 }

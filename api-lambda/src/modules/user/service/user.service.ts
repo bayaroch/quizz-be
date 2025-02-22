@@ -6,6 +6,8 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
 import { User, UserKey } from '@modules/user/model/user.model';
 
+import { UserInput } from '../model/user-input';
+
 @Injectable()
 export class UserService extends TransactionSupport {
   constructor(
@@ -121,5 +123,12 @@ export class UserService extends TransactionSupport {
       throw new HttpException(errors.not_found, HttpStatus.NOT_FOUND);
     }
     return existingUserItem[0];
+  }
+
+  async getAppInit(currentUser: UserInput): Promise<{ user_info: User }> {
+    const existingUser = await this.getExistingUser(currentUser.uuid);
+    return {
+      user_info: existingUser,
+    };
   }
 }

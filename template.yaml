@@ -20,6 +20,15 @@ Parameters:
   BaseUrlParameter:
     Type: String
     Default: "/param/quiz-stack/BASE_URL"
+  GoogleClientIdParameter:
+    Type: String
+    Default: "/param/quiz-stack/GOOGLE_CLIENT_ID"
+  GoogleClientSecretParameter:
+    Type: String
+    Default: "/param/quiz-stack/GOOGLE_CLIENT_SECRET"
+  AwsRegionParameter:
+    Type: String
+    Default: "/param/quiz-stack/AWS_REGION"
 
 Resources:
   # 1. S3 Buckets
@@ -120,7 +129,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./api-lambda
-      Handler: dist/index.handler
+      Handler: dist/src/index.handler
       Runtime: nodejs20.x
       MemorySize: 512
       Timeout: 300
@@ -144,6 +153,9 @@ Resources:
           QPAY_INVOICE_CODE_PARAM: !Ref QpayInvoiceCodeParameter
           QPAY_URL_PARAM: !Ref QpayUrlParameter
           BASE_URL_PARAM: !Ref BaseUrlParameter
+          GOOGLE_CLIENT_ID_PARAM: !Ref GoogleClientIdParameter
+          GOOGLE_CLIENT_SECRET_PARAM: !Ref GoogleClientSecretParameter
+          AWS_REGION_PARAM: !Ref AwsRegionParameter
       Role: !GetAtt ApiLambdaRole.Arn
 
   # 4. API Gateways

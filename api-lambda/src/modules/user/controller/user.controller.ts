@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, HttpCode, HttpStatus } from '@nestjs/common';
 
 import { Roles } from '@modules/auth/decorators/roles.decorator';
 import { UserService } from '@modules/user/service/user.service';
@@ -20,5 +20,12 @@ export class UserController {
     );
 
     return existingUser;
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @Get('app-init')
+  @Roles(Role.USER, Role.ADMIN)
+  getAppInit(@CurrentUser() currentUserDto: UserInput) {
+    return this.userService.getAppInit(currentUserDto);
   }
 }

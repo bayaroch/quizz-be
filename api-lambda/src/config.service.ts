@@ -45,6 +45,30 @@ export class ConfigService {
     );
   }
 
+  get googleClientId(): string {
+    return this.getConfigString(
+      'GOOGLE_CLIENT_ID_PARAM',
+      'GOOGLE_CLIENT_ID',
+      'GOOGLE_CLIENT_ID is not defined in the configuration or environment',
+    );
+  }
+
+  get googleClientSecret(): string {
+    return this.getConfigString(
+      'GOOGLE_CLIENT_SECRET_PARAM',
+      'GOOGLE_CLIENT_SECRET',
+      'GOOGLE_CLIENT_SECRET is not defined in the configuration or environment',
+    );
+  }
+
+  get awsRegion(): string {
+    return this.getConfigString(
+      'AWS_REGION_PARAM',
+      'AWS_REGION',
+      'AWS_REGION is not defined in the configuration or environment',
+    );
+  }
+
   private getConfigString(
     configKey: string,
     envKey: string,

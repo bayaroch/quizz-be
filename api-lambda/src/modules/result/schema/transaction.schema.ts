@@ -1,27 +1,22 @@
 import { Schema } from 'dynamoose';
 
-export const QuizSchema = new Schema(
+export const TransactionSchema = new Schema(
   {
-    quiz_uuid: {
+    result_uuid: {
       type: String,
       hashKey: true,
     },
-    name: String,
-    data_uri: String,
-    quiz_identifier: String,
+    qpay_invoice_id: String,
+    amount: Number,
     status: String,
     // GSI must be
-    user_uuid: {
+    quiz_uuid: {
       type: String,
       index: {
-        name: 'user_uuid-index',
+        name: 'quiz_uuid-index',
         type: 'global',
       },
     },
-    profile_image: String,
-    description: String,
-    tag: String,
-    price: Number,
   },
   {
     timestamps: {

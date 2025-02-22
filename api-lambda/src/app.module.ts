@@ -27,7 +27,7 @@ import { SSMConfigFactory } from './ssm-config.factory';
     }),
     DynamooseModule.forRoot({
       local: process.env.IS_DDB_LOCAL === 'true',
-      aws: { region: process.env.REGION },
+      aws: { region: process.env.AWS_REGION },
       table: {
         create: true,
         prefix: '',

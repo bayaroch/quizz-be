@@ -7,5 +7,5 @@ region = "us-east-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
 disable_rollback = true
-parameter_overrides = "Stage=\"dev\" QpayClientIdParameter=\"/param/quiz-stack/QPAY_CLIENT_ID\" QpayClientSecretParameter=\"/param/quiz-stack/QPAY_CLIENT_SECRET\" QpayInvoiceCodeParameter=\"/param/quiz-stack/QPAY_INVOICE_CODE\" QpayUrlParameter=\"/param/quiz-stack/QPAY_URL\" BaseUrlParameter=\"/param/quiz-stack/BASE_URL\""
+parameter_overrides = "Stage=\"dev\" QpayClientIdParameter=\"/param/quiz-stack/QPAY_CLIENT_ID\" QpayClientSecretParameter=\"/param/quiz-stack/QPAY_CLIENT_SECRET\" QpayInvoiceCodeParameter=\"/param/quiz-stack/QPAY_INVOICE_CODE\" QpayUrlParameter=\"/param/quiz-stack/QPAY_URL\" BaseUrlParameter=\"/param/quiz-stack/BASE_URL\" GoogleClientIdParameter=\"/param/quiz-stack/GOOGLE_CLIENT_ID\" GoogleClientSecretParameter=\"/param/quiz-stack/GOOGLE_CLIENT_SECRET\" AwsRegionParameter=\"/param/quiz-stack/AWS_REGION\""
 image_repositories = []

@@ -9,6 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 
+import { Public } from '@modules/auth/decorators/public.decorator';
 import { Roles } from '@modules/auth/decorators/roles.decorator';
 
 import { Role } from '../../auth/enums/role.enum';
@@ -27,15 +28,15 @@ export class QuizController {
   }
 
   @Get()
+  @Public()
   @Roles(Role.ADMIN)
   findAll(@Query('limit') limit: number, @Query('lastKey') lastKey: string) {
     return this.quizService.findAll(limit, lastKey);
   }
 
   @Get(':id')
-  @Roles(Role.ADMIN)
+  @Public()
   findOne(@Param('id') id: string) {
-    console.log('get', id);
     return this.quizService.findOne(id);
   }
 
@@ -50,5 +51,17 @@ export class QuizController {
   @Roles(Role.ADMIN)
   remove(@Param('id') id: string) {
     return this.quizService.remove(id);
+  }
+
+  @Get('seo/list')
+  @Public()
+  getAllSeo(@Query('limit') limit: number, @Query('lastKey') lastKey: string) {
+    return this.quizService.findAllSeo(limit, lastKey);
+  }
+
+  @Get('seo/:id')
+  @Public()
+  findOneSeo(@Param('id') id: string) {
+    return this.quizService.findOneSeo(id);
   }
 }

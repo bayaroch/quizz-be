@@ -23,4 +23,8 @@ export const errors = {
     code: 'BE00009',
     message: 'Result model related error',
   },
+  invalid_limit: {
+    code: 'BE00010',
+    message: 'Invalid limit value: must be -1 or a positive integer',
+  },
 };

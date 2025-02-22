@@ -24,4 +24,7 @@ export class CreateQuizInput {
 
   @IsString()
   tag: string;
+
+  @IsString()
+  price: number;
 }
