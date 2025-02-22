@@ -286,7 +286,7 @@ Resources:
       TimeoutInMinutes: 60
 
   # CodeBuild IAM Role
-    CodeBuildRole:
+  CodeBuildRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
