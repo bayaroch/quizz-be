@@ -286,7 +286,7 @@ Resources:
       TimeoutInMinutes: 60
 
   # CodeBuild IAM Role
-  CodeBuildRole:
+    CodeBuildRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -296,48 +296,24 @@ Resources:
             Principal:
               Service: codebuild.amazonaws.com
             Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess  # Full CloudFormation access (includes SAM-managed stacks)
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess           # Full S3 access for all buckets
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess         # Full Lambda access
+        - arn:aws:iam::aws:policy/AmazonSSMFullAccess          # Full SSM access for parameters
+        - arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator # Full API Gateway access
+        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess     # Full CloudWatch Logs access
       Policies:
-        - PolicyName: CodeBuildPolicy
+        - PolicyName: CodeBuildCustomPolicy
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
+              # Custom permission to allow passing roles (not covered by managed policies)
               - Effect: Allow
                 Action:
-                  - logs:CreateLogGroup
-                  - logs:CreateLogStream
-                  - logs:PutLogEvents
-                Resource: "*"
-              - Effect: Allow
-                Action:
-                  - s3:GetObject
-                  - s3:PutObject
-                  - s3:GetBucket*
-                  - s3:List*
+                  - iam:PassRole
                 Resource:
-                  - !Sub "${ApiLambdaBucket.Arn}"
-                  - !Sub "${ApiLambdaBucket.Arn}/*"
-              - Effect: Allow
-                Action:
-                  - cloudformation:DescribeStacks
-                  - cloudformation:CreateChangeSet
-                  - cloudformation:ExecuteChangeSet
-                  - cloudformation:DescribeChangeSet
-                  - cloudformation:CreateStack
-                  - cloudformation:UpdateStack
-                  - cloudformation:DeleteStack
-                Resource: 
-                  - !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*"
-                  - !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/aws-sam-cli-managed-default/*"
-              - Effect: Allow
-                Action:
-                  - lambda:UpdateFunctionCode
-                  - lambda:GetFunction
-                Resource: !GetAtt ApiLambdaFunction.Arn
-              - Effect: Allow
-                Action:
-                  - ssm:GetParameter
-                  - ssm:GetParameters
-                Resource: !Sub "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/param/${AWS::StackName}/*"
+                  - !GetAtt ApiLambdaRole.Arn
 
   # CodePipeline
   CodePipeline:
