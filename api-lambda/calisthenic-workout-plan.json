@@ -1,0 +1,3400 @@
+{
+  "id": 1500,
+  "useQuestionnaireAsFirstPage": false,
+  "firstQuestionLegalConsentDescription": null,
+  "flowStyleType": "redesign",
+  "topic": "calisthenicMale",
+  "planLabel": "Calisthenics Workout Plan",
+  "landingPage": null,
+  "salesFunnelId": 1900,
+  "firstPageId": 2934,
+  "flowType": 1,
+  "iosStoreCPP": "6cb40c28-a294-4c0b-9fc8-c3ef300bc1d6",
+  "structure": {
+    "1": [
+      {
+        "id": 3793,
+        "gender": 1,
+        "type": "INFO_PAGE",
+        "isCustomPage": false,
+        "title": "Calisthenics | redesign | dark | TOP men | 150 millions",
+        "variables": [],
+        "innerType": "big_image",
+        "url": null,
+        "pageTitle": "150 million people",
+        "pageSubTitle": "have chosen BetterMe",
+        "image": "xlzvrjjxnro1kfhyns1l",
+        "buttonText": "CONTINUE",
+        "automationId": "infoPage_496",
+        "analyticsEvent": "/150_million_people_calisthenics"
+      },
+      {
+        "id": 334070,
+        "gender": 1,
+        "questionId": 16404,
+        "type": "QUESTION",
+        "title": "What's your motivation to get in shape?",
+        "description": "Choose all that apply",
+        "analyticsEvent": "/your_motivation_to_get_in_shape",
+        "image": null,
+        "questionType": "multi_select",
+        "questionStyle": 1,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67685,
+            "questionId": 16404,
+            "order": 1,
+            "title": "Look better",
+            "icon": "t7huvnw5sqip6tp6ayuh",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67686,
+            "questionId": 16404,
+            "order": 2,
+            "title": "Get stronger",
+            "icon": "avumsltp3wvrtlunx5uu",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67687,
+            "questionId": 16404,
+            "order": 3,
+            "title": "Feel healthier and more energetic",
+            "icon": "ljnupzfynlnhugbpum7a",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67688,
+            "questionId": 16404,
+            "order": 4,
+            "title": "Enjoy more time with loved ones",
+            "icon": "iqjownudurymg1fyx4l2",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67689,
+            "questionId": 16404,
+            "order": 5,
+            "title": "Other",
+            "icon": "i2qupjinzdxf3c4qvxei",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "multiSelect_16404",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334071,
+        "gender": 1,
+        "questionId": 16405,
+        "type": "QUESTION",
+        "title": "What’s your main goal?",
+        "description": null,
+        "analyticsEvent": "/main_goal",
+        "image": "qlrj7xzlaity1uzbqswu",
+        "questionType": "single_select",
+        "questionStyle": 2,
+        "questionImage": "qlrj7xzlaity1uzbqswu",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67690,
+            "questionId": 16405,
+            "order": 1,
+            "title": "Gain muscle",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "Gain muscle %BM",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67691,
+            "questionId": 16405,
+            "order": 2,
+            "title": "Lose weight",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "Lose weight",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67692,
+            "questionId": 16405,
+            "order": 3,
+            "title": "Lose fat and gain muscle",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "Lose fat and gain muscle %BM",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67694,
+            "questionId": 16405,
+            "order": 4,
+            "title": "Improve overall fitness",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "Improve overall fitness",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": "goal",
+        "automationId": "singleSelect_16405_Goal",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 4846,
+        "gender": 1,
+        "type": "INFO_PAGE",
+        "isCustomPage": false,
+        "title": "Сalisthenics Main goal | Motivational Content (A/B test Content improvements based on UX research)",
+        "variables": [
+          {
+            "id": 29,
+            "name": "title",
+            "type": "text",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67690
+                  }
+                ],
+                "value": "Gain muscle fast!"
+              },
+              {
+                "value": "Weight loss in weeks!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67691
+                  }
+                ]
+              },
+              {
+                "value": "The perfect solution is right here!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67692
+                  }
+                ]
+              },
+              {
+                "value": "Feel and look fit within weeks!",
+                "default": true
+              }
+            ]
+          },
+          {
+            "id": 30,
+            "name": "icon",
+            "type": "icon",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "answerId": 67690,
+                    "questionId": 16405
+                  }
+                ],
+                "value": "MuscleMediumIcon"
+              },
+              {
+                "value": "ScaleMediumIcon",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67691
+                  }
+                ]
+              },
+              {
+                "value": "WalkMediumIcon",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67692
+                  }
+                ]
+              },
+              {
+                "default": true,
+                "value": "ManMediumIcon"
+              }
+            ]
+          },
+          {
+            "id": 31,
+            "name": "tipText",
+            "type": "text",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67690
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 0
+                  }
+                ],
+                "value": "For [b|men in their 20s,] Calisthenics is [b|simple and efficient way to gain strength and muscle] without spending hours in the gym.\n\nTry workouts that bring [b|visible results] within just a few weeks!"
+              },
+              {
+                "value": "For [b|men in their 30s,] Calisthenics is [b|simple and efficient way to gain strength and muscle] without spending hours in the gym.\n\nTry workouts that bring [b|visible results] within just a few weeks!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67690
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 1
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 40s,] Calisthenics is [b|simple and efficient way to gain strength and muscle] without spending hours in the gym.\n\nTry workouts that bring [b|visible results] within just a few weeks!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67690
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 2
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men aged 50+,] Calisthenics is [b|simple and efficient way to gain strength and muscle] without spending hours in the gym.\n\nTry workouts that bring [b|visible results] within just a few weeks!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67690
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 3
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 20s,] Calisthenics is a great way to get lean fast.\n\nNo need to spend hours on a treadmill - [b|quick bodyweigth workouts] will put you in fat-burning mode.",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67691
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 0
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 30s,] Calisthenics is a great way to get lean fast.\n\nNo need to spend hours on a treadmill - [b|quick bodyweigth workouts] will put you in fat-burning mode.",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67691
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 1
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 40s,] Calisthenics is a great way to get lean fast.\n\nNo need to spend hours on a treadmill - [b|quick bodyweigth workouts] will put you in fat-burning mode.",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67691
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 2
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men aged 50+,] Calisthenics is a great way to get lean fast.\n\nNo need to spend hours on a treadmill - [b|quick bodyweigth workouts] will put you in fat-burning mode.",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67691
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 3
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 20s,] who want to [b|lose fat] while also [b|building muscle,] Calisthenics offers a balanced approach.\n\nTry a new way of working out that delivers [b|visible results in weeks!]",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67692
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 0
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 30s,] who want to [b|lose fat] while also [b|building muscle,] Calisthenics offers a balanced approach.\n\nTry a new way of working out that delivers [b|visible results in weeks!]",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67692
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 1
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 40s,] who want to [b|lose fat] while also [b|building muscle,] Calisthenics offers a balanced approach.\n\nTry a new way of working out that delivers [b|visible results in weeks!]",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67692
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 2
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men aged 50+,] who want to [b|lose fat] while also [b|building muscle,] Calisthenics offers a balanced approach.\n\nTry a new way of working out that delivers [b|visible results in weeks!]",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67692
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 3
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 20s,] who want [b|to get fit, boost energy,] and [b|improve endurance,] Calisthenics is the go-to workout.\n\n[b|Achieve fitness] and [b|strength] with a new workout that everyone loves!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67694
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 0
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 30s,] who want [b|to get fit, boost energy,] and [b|improve endurance,] Calisthenics is the go-to workout.\n\n[b|Achieve fitness] and [b|strength] with a new workout that everyone loves!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67694
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 1
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men in their 40s,] who want [b|to get fit, boost energy,] and [b|improve endurance,] Calisthenics is the go-to workout.\n\n[b|Achieve fitness] and [b|strength] with a new workout that everyone loves!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67694
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 2
+                  }
+                ]
+              },
+              {
+                "value": "For [b|men aged 50+,] who want [b|to get fit, boost energy,] and [b|improve endurance,] Calisthenics is the go-to workout.\n\n[b|Achieve fitness] and [b|strength] with a new workout that everyone loves!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67694
+                  },
+                  {
+                    "type": "first_page_card_index",
+                    "pageId": 2934,
+                    "cardIndex": 3
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "innerType": "motivational_content",
+        "url": null,
+        "pageTitle": "$title",
+        "iconId": "$icon",
+        "pageText": "$tipText",
+        "image": null,
+        "buttonText": "CONTINUE",
+        "automationId": "infoPage_4846",
+        "disclaimer": "",
+        "analyticsEvent": "/info_page_calisthenics_main_goal"
+      },
+      {
+        "id": 334073,
+        "gender": 1,
+        "questionId": 12822,
+        "type": "QUESTION",
+        "title": "What is your body goal?",
+        "description": null,
+        "analyticsEvent": "/body_goal",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 3,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51423,
+            "questionId": 12822,
+            "order": 1,
+            "title": "A few sizes smaller",
+            "icon": "h1repzbwldeaxhrfklad",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51424,
+            "questionId": 12822,
+            "order": 2,
+            "title": "Athletic",
+            "icon": "vlowkrby6uilz5lw1avy",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51425,
+            "questionId": 12822,
+            "order": 3,
+            "title": "Shredded",
+            "icon": "zvtvzaex9ysmfksq8z3u",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51426,
+            "questionId": 12822,
+            "order": 4,
+            "title": "Swole",
+            "icon": "y3ph4acdbo2mx8qiqj41",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_12822",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334074,
+        "gender": 1,
+        "questionId": 12823,
+        "type": "QUESTION",
+        "title": "How would you describe your physical build?",
+        "description": null,
+        "analyticsEvent": "/physical_build",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 3,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51427,
+            "questionId": 12823,
+            "order": 1,
+            "title": "Slender",
+            "icon": "rcthm5yodgpojexzmdww",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51428,
+            "questionId": 12823,
+            "order": 2,
+            "title": "Medium build",
+            "icon": "fryohlkhtj5svqd5upwg",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51429,
+            "questionId": 12823,
+            "order": 3,
+            "title": "Stocky",
+            "icon": "jog0wil97rk9tvlvavak",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51430,
+            "questionId": 12823,
+            "order": 4,
+            "title": "Significantly overweight",
+            "icon": "s0viw3hrpeocgtu6ghuo",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_12823",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334075,
+        "gender": 1,
+        "questionId": 12824,
+        "type": "QUESTION",
+        "title": "What is your experience with fitness?",
+        "description": null,
+        "analyticsEvent": "/experience_with_fitness",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 2,
+        "questionImage": "h82haijggotlw1pfg8kh",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51431,
+            "questionId": 12824,
+            "order": 1,
+            "title": "I struggle to gain weight or muscle",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "0",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51432,
+            "questionId": 12824,
+            "order": 2,
+            "title": "I gain and lose weight easily",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "1",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51433,
+            "questionId": 12824,
+            "order": 3,
+            "title": "I gain weight fast but lose it slowly",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "2",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": "body_type",
+        "automationId": "singleSelect_12824",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334076,
+        "gender": 1,
+        "questionId": 12825,
+        "type": "QUESTION",
+        "title": "How long ago were you in the best shape of your life?",
+        "description": null,
+        "analyticsEvent": "/best_shape_of_your_life",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 2,
+        "questionImage": "yz3xyrqdgzlksrm1awkd",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51434,
+            "questionId": 12825,
+            "order": 1,
+            "title": "Less than a year ago",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51435,
+            "questionId": 12825,
+            "order": 2,
+            "title": "1 to 2 years ago",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51436,
+            "questionId": 12825,
+            "order": 3,
+            "title": "More than 3 years ago",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51437,
+            "questionId": 12825,
+            "order": 4,
+            "title": "Never",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_12825",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 4854,
+        "gender": 1,
+        "type": "INFO_PAGE",
+        "isCustomPage": false,
+        "title": "Best Shape Calisthenics | Motivational Content",
+        "variables": [
+          {
+            "id": 32,
+            "name": "title",
+            "type": "text",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "answerId": 51434,
+                    "questionId": 12825
+                  }
+                ],
+                "value": "This is better than 83% of users"
+              },
+              {
+                "value": "This is better than 64% of users",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12825,
+                    "answerId": 51435
+                  }
+                ]
+              },
+              {
+                "value": "48% of our users are just like you",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12825,
+                    "answerId": 51436
+                  }
+                ]
+              },
+              {
+                "default": true,
+                "value": "You are not alone!"
+              }
+            ]
+          },
+          {
+            "id": 33,
+            "name": "icon",
+            "type": "icon",
+            "cases": [
+              {
+                "default": true,
+                "value": "LikeMediumIcon"
+              }
+            ]
+          },
+          {
+            "id": 34,
+            "name": "tipText",
+            "type": "text",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "answerId": 51434,
+                    "questionId": 12825
+                  }
+                ],
+                "value": "Ready to see real [b|progress in weeks,] not months?\n\nCalisthenics can help you achieve the [b|body you've always wanted.]\n\nIt's totally doable and might be easier  than you think."
+              },
+              {
+                "value": "Remember [b|how good it feels to be in shape] and admire your own reflection?\n\nCalisthenics can help you become the fittest version of yourself.\n\n[b|Strength, more energy,] and [b|the body of your dreams] await!",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12825,
+                    "answerId": 51435
+                  }
+                ]
+              },
+              {
+                "value": "Calisthenics is here to bring that fit body back.\n\nTry an [b|efficient way to lose fat] and [b|build muscle] all at the same time!\n\nQuick and easy, with visible [b|progress in just a few weeks.]",
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12825,
+                    "answerId": 51436
+                  }
+                ]
+              },
+              {
+                "default": true,
+                "value": "16% of our users are going through the same experience.\n\nThe solution? [b|A personalized Calisthenics plan.]\n\n[b|Lose weight, build muscle,] and [b|triple your confidence] in just a few weeks!"
+              }
+            ]
+          }
+        ],
+        "innerType": "motivational_content",
+        "url": null,
+        "pageTitle": "$title",
+        "iconId": "$icon",
+        "pageText": "$tipText",
+        "image": null,
+        "buttonText": "CONTINUE",
+        "automationId": "infoPage_4854",
+        "disclaimer": "",
+        "analyticsEvent": "/info_page_how_long_ago_were_you_in_the_best_shape"
+      },
+      {
+        "id": 334078,
+        "gender": 1,
+        "questionId": 12826,
+        "type": "QUESTION",
+        "title": "How familiar are you with calisthenics?",
+        "description": null,
+        "analyticsEvent": "/familiar_calisthenics",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 2,
+        "questionImage": "dhwsjsszjmhbe7vcetti",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51438,
+            "questionId": 12826,
+            "order": 1,
+            "title": "I am just starting out",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "0",
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51439,
+            "questionId": 12826,
+            "order": 2,
+            "title": "I have some experience",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "1",
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51440,
+            "questionId": 12826,
+            "order": 3,
+            "title": "I am proficient",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "2",
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": "level",
+        "automationId": "singleSelect_12826",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334079,
+        "gender": 1,
+        "questionId": 16438,
+        "type": "QUESTION",
+        "title": "What stopped you from getting fit before?",
+        "description": "Choose all that apply",
+        "analyticsEvent": "/stopped_from_getting_fit",
+        "image": null,
+        "questionType": "multi_select",
+        "questionStyle": null,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67839,
+            "questionId": 16438,
+            "order": 1,
+            "title": "Lack of motivation",
+            "icon": "bqqjdligg5nqs6ffuddi",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67840,
+            "questionId": 16438,
+            "order": 2,
+            "title": "Didn't have a clear plan",
+            "icon": "mksphx2gsf6a9gbczayk",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67841,
+            "questionId": 16438,
+            "order": 3,
+            "title": "Lack of time",
+            "icon": "l9gsgsuhmqyfkgfwbang",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67842,
+            "questionId": 16438,
+            "order": 4,
+            "title": "Injuries or pain",
+            "icon": "goevpbwrr7z5f9pcsmns",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67843,
+            "questionId": 16438,
+            "order": 5,
+            "title": "None of the above",
+            "icon": "fzbyxbhplkaarz2psm00",
+            "isNoneAnswer": true,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "multiSelect_16438",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 5141,
+        "gender": 1,
+        "type": "INFO_PAGE",
+        "isCustomPage": false,
+        "title": "Сalisthenics new Keep on trackl | Motivational Content (Content improvements on UX research) + graph",
+        "variables": [
+          {
+            "id": 220,
+            "name": "title",
+            "type": "text",
+            "cases": [
+              {
+                "default": true,
+                "value": "BetterMe will keep you on track!"
+              }
+            ]
+          },
+          {
+            "id": 221,
+            "name": "tipImage",
+            "type": "image",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67690
+                  }
+                ],
+                "value": "mkygecasqhwn6mg8nfkn"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67691
+                  }
+                ],
+                "value": "tjdkasiplxybbbrpvimm"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 16405,
+                    "answerId": 67692
+                  }
+                ],
+                "value": "czo7acndtsbtn6krxqh6"
+              },
+              {
+                "default": true,
+                "value": "mjpnltnly7tjupvlaowp"
+              }
+            ]
+          },
+          {
+            "id": 222,
+            "name": "tipText",
+            "type": "text",
+            "cases": [
+              {
+                "default": true,
+                "value": "Your plan provides all the tools you need to stay motivated and achieve your body goals."
+              }
+            ]
+          }
+        ],
+        "innerType": "motivational_content",
+        "url": "/info-page-weight-graph",
+        "pageTitle": "$title",
+        "iconId": null,
+        "pageText": "$tipText",
+        "image": "$tipImage",
+        "disclaimer": "This chart is for illustrative purposes only",
+        "buttonText": "CONTINUE",
+        "automationId": "infoPage_5141",
+        "analyticsEvent": "/info_page_calisthenics_keep_on_track"
+      },
+      {
+        "id": 334081,
+        "gender": 1,
+        "questionId": 16425,
+        "type": "QUESTION",
+        "title": "How many push-ups could you do in one go?",
+        "description": null,
+        "analyticsEvent": "/push_ups",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 2,
+        "questionImage": "rooixp0dflzqsiuby5wd",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67786,
+            "questionId": 16425,
+            "order": 1,
+            "title": "Fewer than 10",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67787,
+            "questionId": 16425,
+            "order": 2,
+            "title": "10 to 20",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67788,
+            "questionId": 16425,
+            "order": 3,
+            "title": "21 to 30",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67789,
+            "questionId": 16425,
+            "order": 4,
+            "title": "More than 30",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67790,
+            "questionId": 16425,
+            "order": 5,
+            "title": "I don't know",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_16425",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334082,
+        "gender": 1,
+        "questionId": 12829,
+        "type": "QUESTION",
+        "title": "How flexible are you?",
+        "description": null,
+        "analyticsEvent": "/flexible",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 2,
+        "questionImage": "oxi3tadx5mo5zqgv2gtr",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51450,
+            "questionId": 12829,
+            "order": 1,
+            "title": "Very flexible",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51451,
+            "questionId": 12829,
+            "order": 2,
+            "title": "Pretty flexible",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51452,
+            "questionId": 12829,
+            "order": 4,
+            "title": "Not that good",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51453,
+            "questionId": 12829,
+            "order": 5,
+            "title": "I’m not sure",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_12829",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334083,
+        "gender": 1,
+        "questionId": 16426,
+        "type": "QUESTION",
+        "title": "How many times have you worked out in the last 3 months?",
+        "description": null,
+        "analyticsEvent": "/how_often_do_you_work_out_in_the_last_3_months",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 2,
+        "questionImage": "p52r18iqovkxgeszllk1",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67791,
+            "questionId": 16426,
+            "order": 1,
+            "title": "Almost every day",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "2",
+            "contentValue": "1",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67792,
+            "questionId": 16426,
+            "order": 2,
+            "title": "Several times a week",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "1",
+            "contentValue": "0.5",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67793,
+            "questionId": 16426,
+            "order": 3,
+            "title": "Several times a month",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "0",
+            "contentValue": "0",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67794,
+            "questionId": 16426,
+            "order": 4,
+            "title": "I don't work out",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "0",
+            "contentValue": "0",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": "fitnessLevel",
+        "customizationKey": "fitness_level",
+        "automationId": "singleSelect_16426",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 4868,
+        "gender": 1,
+        "type": "INFO_PAGE",
+        "isCustomPage": false,
+        "title": "How often you exercise Calisthenics (var.C) | Motivational Content",
+        "variables": [
+          {
+            "id": 53,
+            "name": "title",
+            "type": "text",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "answerId": 67791,
+                    "questionId": 16426
+                  }
+                ],
+                "value": "Impressive consistency!"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "answerId": 67792,
+                    "questionId": 16426
+                  }
+                ],
+                "value": "On the right track!"
+              },
+              {
+                "default": true,
+                "value": "It's never too late!"
+              }
+            ]
+          },
+          {
+            "id": 54,
+            "name": "tipText",
+            "type": "text",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "answerId": 67791,
+                    "questionId": 16426
+                  }
+                ],
+                "value": "You're exercising [b|more than 93% of users.]\n\nAdding Calisthenics to your workout plan can break you out of a rut and [b|help you achieve new levels of fitness!]"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "answerId": 67792,
+                    "questionId": 16426
+                  }
+                ],
+                "value": "Your consistent effort sets you apart.\n\nWith a personalized Calisthenics plan, you'll be able to [b|stay consistent, boost muscle growth,] and [b|make steady progress!]"
+              },
+              {
+                "default": true,
+                "value": "[b|Calisthenics is great for all schedules and fitness levels,] so you'll start seeing results soon."
+              }
+            ]
+          }
+        ],
+        "innerType": "motivational_content",
+        "url": null,
+        "pageTitle": "$title",
+        "iconId": null,
+        "pageText": "$tipText",
+        "image": "egeweg2yeecrerrg4ugt",
+        "buttonText": "CONTINUE",
+        "automationId": "infoPage_4868",
+        "disclaimer": "",
+        "analyticsEvent": "/info_page_how_often_you_exercise"
+      },
+      {
+        "id": 334085,
+        "gender": 1,
+        "questionId": 12876,
+        "type": "QUESTION",
+        "title": "What are your target zones?",
+        "description": "Choose all that apply",
+        "analyticsEvent": "/what_target_zones",
+        "image": "Variant_Model_Style_Photo_2_pemj95",
+        "questionType": "custom_component",
+        "questionStyle": null,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51621,
+            "questionId": 12876,
+            "order": 1,
+            "title": "Belly",
+            "icon": null,
+            "isNoneAnswer": false,
+            "description": null,
+            "customizationValue": null,
+            "contentValue": "4",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51622,
+            "questionId": 12876,
+            "order": 2,
+            "title": "Pecs",
+            "icon": null,
+            "isNoneAnswer": false,
+            "description": null,
+            "customizationValue": null,
+            "contentValue": "3",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51623,
+            "questionId": 12876,
+            "order": 3,
+            "title": "Arms",
+            "icon": null,
+            "isNoneAnswer": false,
+            "description": null,
+            "customizationValue": null,
+            "contentValue": "1",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51624,
+            "questionId": 12876,
+            "order": 4,
+            "title": "Legs",
+            "icon": null,
+            "isNoneAnswer": false,
+            "description": null,
+            "customizationValue": null,
+            "contentValue": "5",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": "target_zones_multi_select_different_men",
+        "contentKey": "bodyZones",
+        "customizationKey": null,
+        "automationId": "multiSelect_12876",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334086,
+        "gender": 1,
+        "questionId": 12831,
+        "type": "QUESTION",
+        "title": "Do you struggle with any of the following?",
+        "description": null,
+        "analyticsEvent": "/struggle_with_any",
+        "image": null,
+        "questionType": "multi_select",
+        "questionStyle": 3,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51458,
+            "questionId": 12831,
+            "order": 1,
+            "title": "Sensitive back",
+            "icon": "gepyqpxtietahlb6r29y",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": "2",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51459,
+            "questionId": 12831,
+            "order": 2,
+            "title": "Sensitive knees",
+            "icon": "ynaxglrhqwcmg4wmo4nf",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": "3",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51460,
+            "questionId": 12831,
+            "order": 3,
+            "title": "None of the above",
+            "icon": "njpkb9ixngx7vlvbpies",
+            "isNoneAnswer": true,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": "1",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": "physicalLimitations",
+        "customizationKey": null,
+        "automationId": "multiSelect_12831",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 4857,
+        "gender": 1,
+        "type": "INFO_PAGE",
+        "isCustomPage": false,
+        "title": "Calisthenics struggle with any of the following | Motivational Content",
+        "variables": [
+          {
+            "id": 40,
+            "name": "title",
+            "type": "text",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12831,
+                    "answerId": 51458
+                  },
+                  {
+                    "type": "question",
+                    "questionId": 12831,
+                    "answerId": 51459
+                  }
+                ],
+                "value": "Safety comes first!"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12831,
+                    "answerId": 51458
+                  }
+                ],
+                "value": "More strength, less back pain!"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12831,
+                    "answerId": 51459
+                  }
+                ],
+                "value": "Calisthenics is the answer!"
+              },
+              {
+                "default": true,
+                "value": "Good for you!"
+              }
+            ]
+          },
+          {
+            "id": 41,
+            "name": "tipText",
+            "type": "text",
+            "cases": [
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12831,
+                    "answerId": 51458
+                  },
+                  {
+                    "type": "question",
+                    "questionId": 12831,
+                    "answerId": 51459
+                  }
+                ],
+                "value": "Calisthenics is what you need to [b|keep your back and knees happy,] all while getting stronger and fitter with every single workout.\n\nAchieve your fitness goals [b|without putting your health in danger.]"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12831,
+                    "answerId": 51458
+                  }
+                ],
+                "value": "[b|Stronger back] is one of the simplest long-term solutions for back pain.\n\nCalisthenics is designed to help you [b|strengthen your lower back] and [b|improve your spine health] without lifting weights or buying any extra equipment!"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "question",
+                    "questionId": 12831,
+                    "answerId": 51459
+                  }
+                ],
+                "value": "Your personalized Calisthenics plan includes [b|low-impact, knee-friendly exercises] that bring results instead of injuries.\n\n[b|Get stronger and fitter] with a plan that puts your safety first!"
+              },
+              {
+                "default": true,
+                "value": "Calisthenics is a form of strength training that [b|anyone can do!]\n\nNo matter your physical abilities, [b|this is the right workout to get stronger and achieve the body you want.]"
+              }
+            ]
+          }
+        ],
+        "innerType": "motivational_content",
+        "url": null,
+        "pageTitle": "$title",
+        "iconId": "DoubleCheckMediumIcon",
+        "pageText": "$tipText",
+        "image": null,
+        "buttonText": "CONTINUE",
+        "automationId": "infoPage_4857",
+        "disclaimer": "",
+        "analyticsEvent": "/calisthenics_we_got_you"
+      },
+      {
+        "id": 334088,
+        "gender": 1,
+        "questionId": 12833,
+        "type": "QUESTION",
+        "title": "How many times per week would you like to train?",
+        "description": null,
+        "analyticsEvent": "/time_per_week_train",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 2,
+        "questionImage": "vdhhmkec6w2e1syioa0z",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51463,
+            "questionId": 12833,
+            "order": 1,
+            "title": "1-2 times",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51464,
+            "questionId": 12833,
+            "order": 2,
+            "title": "3-4 times",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51465,
+            "questionId": 12833,
+            "order": 3,
+            "title": "5+ times",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_12833",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334089,
+        "gender": 1,
+        "questionId": 16427,
+        "type": "QUESTION",
+        "title": "How long do you want your workouts to be?",
+        "description": null,
+        "analyticsEvent": "/times-workout",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 2,
+        "questionImage": "w7j9mja03lo6sdjifbcu",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67795,
+            "questionId": 16427,
+            "order": 1,
+            "title": "10-15 min",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67796,
+            "questionId": 16427,
+            "order": 2,
+            "title": "15-20 min",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67797,
+            "questionId": 16427,
+            "order": 3,
+            "title": "20-25 min",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67798,
+            "questionId": 16427,
+            "order": 4,
+            "title": "25+ min",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67799,
+            "questionId": 16427,
+            "order": 5,
+            "title": "I don’t know",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_16427",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334090,
+        "gender": 1,
+        "questionId": 12813,
+        "type": "QUESTION",
+        "title": "What is your work schedule like?",
+        "description": null,
+        "analyticsEvent": "/work_schedule_like",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": null,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51372,
+            "questionId": 12813,
+            "order": 1,
+            "title": "9 to 5",
+            "icon": "xjonjx4x670iu5kqq5po",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51373,
+            "questionId": 12813,
+            "order": 2,
+            "title": "Night shifts",
+            "icon": "n4ataubtjixcejpispgm",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51374,
+            "questionId": 12813,
+            "order": 3,
+            "title": "My hours are flexible",
+            "icon": "dx0upjglbtb0ngd30ann",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51375,
+            "questionId": 12813,
+            "order": 4,
+            "title": "I'm retired/not working right now",
+            "icon": "hzuibmkmletiumtaofwe",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_12813",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334091,
+        "gender": 1,
+        "questionId": 16428,
+        "type": "QUESTION",
+        "title": "How would you describe your typical day?",
+        "description": null,
+        "analyticsEvent": "/typical day",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": null,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67800,
+            "questionId": 16428,
+            "order": 1,
+            "title": "Mostly sitting",
+            "icon": "eouperctub47i7ooabur",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "0",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67802,
+            "questionId": 16428,
+            "order": 2,
+            "title": "Constantly on my feet",
+            "icon": "lrpm8pgkabqdvptangmi",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "1",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67801,
+            "questionId": 16428,
+            "order": 3,
+            "title": "Balance of sitting and moving",
+            "icon": "nucicivqvl9zix7wq9dy",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "1",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67803,
+            "questionId": 16428,
+            "order": 4,
+            "title": "Activity level changes daily",
+            "icon": "dafit9vbqa4rnfuf6cqo",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "1",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": "lifestyle",
+        "automationId": "singleSelect_16428",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334092,
+        "gender": 1,
+        "questionId": 16429,
+        "type": "QUESTION",
+        "title": "How are your energy levels during the day?",
+        "description": null,
+        "analyticsEvent": "/energy_level",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": null,
+        "questionImage": "nbvfiba4hoojfcdxjchw",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67807,
+            "questionId": 16429,
+            "order": 1,
+            "title": "Low and inconsistent",
+            "icon": "loyvcp4ksbztembbba0p",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "0",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67804,
+            "questionId": 16429,
+            "order": 2,
+            "title": "Remain steady",
+            "icon": "fu79tzt4eqqf6x9notuq",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "0",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67805,
+            "questionId": 16429,
+            "order": 3,
+            "title": "Fluctuate throughout the day",
+            "icon": "qu77pt6cgfwyfzof5oox",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "0",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67806,
+            "questionId": 16429,
+            "order": 4,
+            "title": "Stay high all day",
+            "icon": "gq5hjupmhsvrnm2kjy0x",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "1",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": "energy_level",
+        "automationId": "singleSelect_16429",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334093,
+        "gender": 1,
+        "questionId": 12835,
+        "type": "QUESTION",
+        "title": "How much sleep do you usually get?",
+        "description": null,
+        "analyticsEvent": "/sleep_usually_get",
+        "image": "mjyuqgeyggx5zugz4acm",
+        "questionType": "single_select",
+        "questionStyle": 4,
+        "questionImage": "e4rojlvvupsp5vgsatco",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51470,
+            "questionId": 12835,
+            "order": 1,
+            "title": "Less than 5 hours",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "You get less than 5 hours of sleep a night",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51471,
+            "questionId": 12835,
+            "order": 2,
+            "title": "5-6 hours",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "You only get 5-6 hours of sleep a night",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51472,
+            "questionId": 12835,
+            "order": 3,
+            "title": "7-8 hours",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "You are getting enough sleep",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51473,
+            "questionId": 12835,
+            "order": 4,
+            "title": "More than 8 hours",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "You are getting enough sleep",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": "sleep_hours",
+        "automationId": "singleSelect_12835",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334094,
+        "gender": 1,
+        "questionId": 13245,
+        "type": "QUESTION",
+        "title": "What’s your daily water intake?",
+        "description": null,
+        "analyticsEvent": "/daily_water_intake",
+        "image": "bss6puy05d0wx3z0cbf7",
+        "questionType": "single_select",
+        "questionStyle": 4,
+        "questionImage": "m15u0rg22i1d4hbo9xyp",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 53298,
+            "questionId": 13245,
+            "order": 1,
+            "title": "I only have coffee or tea",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 53299,
+            "questionId": 13245,
+            "order": 2,
+            "title": "About 2 glasses",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 53300,
+            "questionId": 13245,
+            "order": 3,
+            "title": "2 to 6 glasses",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 53301,
+            "questionId": 13245,
+            "order": 4,
+            "title": "More than 6 glasses",
+            "icon": "",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_13245",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334095,
+        "gender": 1,
+        "questionId": 16430,
+        "type": "QUESTION",
+        "title": "Do you have any of the following habits?",
+        "description": "Choose all that apply",
+        "analyticsEvent": "/your_bad_habits",
+        "image": null,
+        "questionType": "multi_select",
+        "questionStyle": 1,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67808,
+            "questionId": 16430,
+            "order": 1,
+            "title": "Emotional or boredom eating",
+            "icon": "tjsrndtoh58gnoezqsla",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67809,
+            "questionId": 16430,
+            "order": 2,
+            "title": "Overeating",
+            "icon": "zel9dvago4dbxstl66ec",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67810,
+            "questionId": 16430,
+            "order": 3,
+            "title": "Late-night snacking",
+            "icon": "ouupmpe0bbehzuixbe2b",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67811,
+            "questionId": 16430,
+            "order": 4,
+            "title": "Skipping meals too often",
+            "icon": "rh1ngzkla9zfjt1bxrfd",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67812,
+            "questionId": 16430,
+            "order": 5,
+            "title": "None of the above",
+            "icon": "e9iiakhm4lgmdeqlv32z",
+            "isNoneAnswer": true,
+            "description": "",
+            "customizationValue": null,
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "multiSelect_16430",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334096,
+        "gender": 1,
+        "questionId": 16431,
+        "type": "QUESTION",
+        "title": "What foods do you crave most often?",
+        "description": "Choose all that apply",
+        "analyticsEvent": "/foods_you_crave_most_often",
+        "image": null,
+        "questionType": "multi_select",
+        "questionStyle": null,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67814,
+            "questionId": 16431,
+            "order": 1,
+            "title": "Sweet treats",
+            "icon": "rvzmj32eirqo6qwhvvvp",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67815,
+            "questionId": 16431,
+            "order": 2,
+            "title": "Salty snacks",
+            "icon": "oudtarpsfqq61x82efc8",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67816,
+            "questionId": 16431,
+            "order": 3,
+            "title": "Fast food",
+            "icon": "n3vr4cbbacavglalm6le",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67817,
+            "questionId": 16431,
+            "order": 4,
+            "title": "Soda",
+            "icon": "mtsbu4koseixky5rfsq7",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67818,
+            "questionId": 16431,
+            "order": 5,
+            "title": "None of the above",
+            "icon": "lej0xal1srkzvomxiu2j",
+            "isNoneAnswer": true,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "multiSelect_16431",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334097,
+        "gender": 1,
+        "questionId": 16433,
+        "type": "QUESTION",
+        "title": "Do you smoke?",
+        "description": null,
+        "analyticsEvent": "/do_you_smoke",
+        "image": null,
+        "questionType": "custom_component",
+        "questionStyle": null,
+        "questionImage": "nbvfiba4hoojfcdxjchw",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67823,
+            "questionId": 16433,
+            "order": 1,
+            "title": "Yes, regularly",
+            "icon": "i8ijwnll5uykfzpxzhl9",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67824,
+            "questionId": 16433,
+            "order": 2,
+            "title": "Only occasionally",
+            "icon": "x8ktpey9pmxvu5dmkaxv",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67825,
+            "questionId": 16433,
+            "order": 3,
+            "title": "Only when I drink",
+            "icon": "zm1aaoq9jlqdfj6pztvq",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67826,
+            "questionId": 16433,
+            "order": 4,
+            "title": "No, I've quit",
+            "icon": "dsrkiwq1vbpdqztegn25",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67827,
+            "questionId": 16433,
+            "order": 5,
+            "title": "No, I've never smoked",
+            "icon": "s5gpw4ng2hweyoyqi3qe",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": "smoke_question_with_consent",
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_16433",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334098,
+        "gender": 1,
+        "questionId": 16434,
+        "type": "QUESTION",
+        "title": "How often do you drink alcohol?",
+        "description": null,
+        "analyticsEvent": "/how_often_do_you_drink_alcohol",
+        "image": null,
+        "questionType": "custom_component",
+        "questionStyle": null,
+        "questionImage": "nbvfiba4hoojfcdxjchw",
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 67828,
+            "questionId": 16434,
+            "order": 1,
+            "title": "Several times a week",
+            "icon": "x1fhriw2p5oeww0degf7",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67829,
+            "questionId": 16434,
+            "order": 2,
+            "title": "Several times a month",
+            "icon": "wsvedip891jwerf6yazx",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67830,
+            "questionId": 16434,
+            "order": 3,
+            "title": "On rare special occasions",
+            "icon": "qhp45adtt2jlasuwfc4r",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 67831,
+            "questionId": 16434,
+            "order": 4,
+            "title": "Never",
+            "icon": "ph4v8lsixjpcznsgwwzl",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": "alcohol_question_with_consent",
+        "contentKey": null,
+        "customizationKey": null,
+        "automationId": "singleSelect_16434",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334099,
+        "gender": 1,
+        "questionId": 13014,
+        "type": "QUESTION",
+        "title": "What type of diet do you prefer?",
+        "description": null,
+        "analyticsEvent": "/diet_type",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": 1,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 52270,
+            "questionId": 13014,
+            "order": 1,
+            "title": "Traditional",
+            "icon": "appbqikvun3xk7yynfnt",
+            "isNoneAnswer": false,
+            "description": "I enjoy everything",
+            "customizationValue": "Traditional Meal Plan",
+            "contentValue": "2",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 52271,
+            "questionId": 13014,
+            "order": 2,
+            "title": "Keto",
+            "icon": "iypmkeiaaqwzmbdl6pbx",
+            "isNoneAnswer": false,
+            "description": "I prefer high-fat low-carb meals",
+            "customizationValue": "Keto Meal Plan",
+            "contentValue": "4",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 52272,
+            "questionId": 13014,
+            "order": 3,
+            "title": "Paleo",
+            "icon": "ph23ysfdtaskfzl90ch7",
+            "isNoneAnswer": false,
+            "description": "I don't eat processed foods",
+            "customizationValue": "Paleo Meal Plan",
+            "contentValue": "10",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 52273,
+            "questionId": 13014,
+            "order": 4,
+            "title": "Vegetarian",
+            "icon": "wqw9rogg9otdbuvzjq4b",
+            "isNoneAnswer": false,
+            "description": "I avoid meat and fish",
+            "customizationValue": "Vegetarian Meal Plan",
+            "contentValue": "3",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 52274,
+            "questionId": 13014,
+            "order": 5,
+            "title": "Vegan (Plant Diet)",
+            "icon": "ysdvyuq3cihxfwm824sl",
+            "isNoneAnswer": false,
+            "description": "I do not eat animal products",
+            "customizationValue": "Vegan Meal Plan",
+            "contentValue": "6",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 52275,
+            "questionId": 13014,
+            "order": 6,
+            "title": "Keto Vegan",
+            "icon": "mnl3dqdpjzuslkd6aqom",
+            "isNoneAnswer": false,
+            "description": "I eat low-carb plant-based meals only",
+            "customizationValue": "Keto Vegan Meal Plan",
+            "contentValue": "7",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 52276,
+            "questionId": 13014,
+            "order": 7,
+            "title": "Mediterranean",
+            "icon": "vmjdpo5iyd6pulqbxmfy",
+            "isNoneAnswer": false,
+            "description": "I eat plenty of veggies, grains and seafood",
+            "customizationValue": "Mediterranean Meal Plan",
+            "contentValue": "11",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 52277,
+            "questionId": 13014,
+            "order": 8,
+            "title": "Pescatarian",
+            "icon": "pv573lle6yruny98uzzf",
+            "isNoneAnswer": false,
+            "description": "I avoid meat but enjoy fish",
+            "customizationValue": "Pescatarian Meal Plan",
+            "contentValue": "5",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 52278,
+            "questionId": 13014,
+            "order": 9,
+            "title": "Lactose Free",
+            "icon": "ghxz8uwokkxr0fqmjwyb",
+            "isNoneAnswer": false,
+            "description": "I do not consume foods with lactose",
+            "customizationValue": "Lactose Free Meal Plan",
+            "contentValue": "8",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 52279,
+            "questionId": 13014,
+            "order": 10,
+            "title": "Gluten Free",
+            "icon": "sfz4sdtd2ndgnp8mtsbx",
+            "isNoneAnswer": false,
+            "description": "I avoid gluten-containing grains",
+            "customizationValue": "Gluten Free Meal Plan",
+            "contentValue": "9",
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "answerGroups": [
+          {
+            "id": 5,
+            "startsFrom": 1,
+            "name": "With Meat"
+          },
+          {
+            "id": 6,
+            "startsFrom": 4,
+            "name": "Without meat"
+          },
+          {
+            "id": 7,
+            "startsFrom": 7,
+            "name": "With fish"
+          },
+          {
+            "id": 8,
+            "startsFrom": 9,
+            "name": "WITHOUT ALLERGENS"
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": "dietId",
+        "customizationKey": "meals",
+        "automationId": "singleSelect_13014",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334100,
+        "gender": 1,
+        "questionId": 9837,
+        "type": "QUESTION",
+        "title": "What is your height?",
+        "description": null,
+        "analyticsEvent": "/height",
+        "image": null,
+        "questionType": "input",
+        "questionStyle": 1,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [],
+        "questionComponentTag": null,
+        "contentKey": "heightCm",
+        "customizationKey": null,
+        "automationId": "questionHeight_9837",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334101,
+        "gender": 1,
+        "questionId": 9838,
+        "type": "QUESTION",
+        "title": "What is your current weight?",
+        "description": null,
+        "analyticsEvent": "/current_weight",
+        "image": null,
+        "questionType": "input",
+        "questionStyle": 1,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [],
+        "questionComponentTag": null,
+        "contentKey": "currentWeightKg",
+        "customizationKey": null,
+        "automationId": "questionCurrentWeight_9838",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334102,
+        "gender": 1,
+        "questionId": 9839,
+        "type": "QUESTION",
+        "title": "What is your goal weight?",
+        "description": null,
+        "analyticsEvent": "/goal_weight",
+        "image": null,
+        "questionType": "input",
+        "questionStyle": 1,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [],
+        "questionComponentTag": null,
+        "contentKey": "targetWeightKg",
+        "customizationKey": null,
+        "automationId": "questionTargetWeight_9839",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 334103,
+        "gender": 1,
+        "questionId": 9654,
+        "type": "QUESTION",
+        "title": "What is your age?",
+        "description": null,
+        "analyticsEvent": "/age",
+        "image": null,
+        "questionType": "input",
+        "questionStyle": null,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [],
+        "questionComponentTag": null,
+        "contentKey": "age",
+        "customizationKey": null,
+        "automationId": "questionAge_9654",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 3794,
+        "gender": 1,
+        "type": "INFO_PAGE",
+        "isCustomPage": false,
+        "title": "Calisthenics | redesign | dark | TOP men | BMI",
+        "variables": [],
+        "innerType": "bmi_images",
+        "url": null,
+        "pageTitle": "Here’s your wellness profile",
+        "bmiUnderweightImage": "hmdu9aoc5ckbhljojr4s",
+        "bmiNormalImage": "fmymuwfyw8iw6b2dmvue",
+        "bmiOverweightImage": "jzptpmo8zyoez7qc12bh",
+        "bmiObeseImage": "vrj8t66oysswsvyyia7g",
+        "buttonText": "CONTINUE",
+        "automationId": "infoPage_497",
+        "analyticsEvent": "/bmi_calisthenic_redesign"
+      },
+      {
+        "id": 334105,
+        "gender": 1,
+        "questionId": 12820,
+        "type": "QUESTION",
+        "title": "Do you have an important event coming up?",
+        "description": "Having something to look forward to can be a great motivator for [b|reaching your goal]",
+        "analyticsEvent": "/important_event",
+        "image": null,
+        "questionType": "single_select",
+        "questionStyle": null,
+        "questionImage": null,
+        "minValue": null,
+        "maxValue": null,
+        "answersHeightKey": null,
+        "answerOptions": [
+          {
+            "id": 51406,
+            "questionId": 12820,
+            "order": 1,
+            "title": "Vacation",
+            "icon": "scenvy1n6sseg7xee0st",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "1",
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51409,
+            "questionId": 12820,
+            "order": 2,
+            "title": "Competition",
+            "icon": "wrkz5vql2u1gxibtqdh5",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "7",
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51414,
+            "questionId": 12820,
+            "order": 3,
+            "title": "Important date",
+            "icon": "lncygmqenzc8agexzhee",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "8",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51415,
+            "questionId": 12820,
+            "order": 4,
+            "title": "Outdoor adventure",
+            "icon": "lyysocve9uib0kv0svra",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "12",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51411,
+            "questionId": 12820,
+            "order": 5,
+            "title": "Birthday",
+            "icon": "sgfux5rzd4vgyzuuhzly",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "6",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51408,
+            "questionId": 12820,
+            "order": 6,
+            "title": "Holiday",
+            "icon": "asgwr3mp6xnro4znsr1i",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "3",
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51416,
+            "questionId": 12820,
+            "order": 7,
+            "title": "Reunion",
+            "icon": "yvyuaa83npjftrvdgej3",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "5",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51410,
+            "questionId": 12820,
+            "order": 8,
+            "title": "Family occasion",
+            "icon": "gq2tdbyuduuf8azj89xb",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "10",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51407,
+            "questionId": 12820,
+            "order": 9,
+            "title": "Wedding",
+            "icon": "kcgej3shcrxahvaukkwt",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "2",
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51412,
+            "questionId": 12820,
+            "order": 10,
+            "title": "Other",
+            "icon": "rnfi9qzscwggtl5sebe3",
+            "isNoneAnswer": false,
+            "description": "",
+            "customizationValue": "11",
+            "contentValue": "",
+            "consentIsRequired": null,
+            "emailingText": null
+          },
+          {
+            "id": 51413,
+            "questionId": 12820,
+            "order": 11,
+            "title": "No events any time soon",
+            "icon": "cu6diihf9e95hxaqfuk6",
+            "isNoneAnswer": true,
+            "description": "",
+            "customizationValue": "0",
+            "contentValue": null,
+            "consentIsRequired": null,
+            "emailingText": null
+          }
+        ],
+        "questionComponentTag": null,
+        "contentKey": null,
+        "customizationKey": "upcoming_event",
+        "automationId": "singleSelect_12820",
+        "consentText": null,
+        "consentType": null
+      },
+      {
+        "id": 3833,
+        "gender": 1,
+        "type": "INFO_PAGE",
+        "isCustomPage": true,
+        "title": "Redesign Calendar",
+        "variables": [],
+        "innerType": "custom",
+        "url": "/info-page-calendar-brand-palette",
+        "automationId": "calendarPage_540",
+        "analyticsEvent": "/calendar"
+      },
+      {
+        "id": 3834,
+        "gender": 1,
+        "type": "INFO_PAGE",
+        "isCustomPage": true,
+        "title": "Redesign graph",
+        "variables": [],
+        "innerType": "custom",
+        "url": "/info-page-personalized-graphic-brand-palette",
+        "automationId": "personalizedGraphEventDate_542",
+        "analyticsEvent": "/expected_result_graph"
+      },
+      {
+        "id": 334108,
+        "gender": 1,
+        "title": "Calisthenics | redesign | dark | different men",
+        "analyticsEvent": "/loader_reviews",
+        "type": "LOADER",
+        "duration": 12,
+        "start": 0,
+        "finish": 100,
+        "text": [
+          "Creating your personalized Calisthenics Workout Plan",
+          "Your personalized Calisthenics Workout Plan is ready!"
+        ],
+        "innerType": "with_review",
+        "automationId": "loader_280",
+        "clientComponentTag": null,
+        "progressTitle": null,
+        "finishTitle": null,
+        "reviews": {
+          "title": "150 million people",
+          "subtitle": "have chosen BetterMe",
+          "items": [
+            {
+              "title": "Better than Gym",
+              "stars": 5,
+              "text": "I have went to gym for two months and didn't see much of a desired result. With better me, only keeping aside 20 mins a day for 28-30 days made me feel more confident with the results",
+              "name": "Rishad"
+            },
+            {
+              "title": "Loving this app",
+              "stars": 5,
+              "text": "I had never done much calisthenics. I used to lift a lot as a younger man. Decided to try calisthenics. Amazing. I am getting great workouts and also having much less back issues.",
+              "name": "Theodore"
+            },
+            {
+              "title": "Very easy to follow",
+              "stars": 5,
+              "text": "The length of the workouts are perfect for a beginner or a returner. The videos are a good pace and make it foolproof for the easily distracted. The timer function helps keep you on track and when you’ll get to move to the next thing.",
+              "name": "Timothy"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "quiz": {
+    "1": {
+      "name": "Friend",
+      "gender": "male",
+      "activities": "0"
+    }
+  },
+  "styles": {
+    "theme": "dark",
+    "themePrimaryColor": "#478DFF",
+    "themeAccentColor": "#3C8786",
+    "contentPrimaryColor": "#FFFFFF",
+    "contentSecondaryColor": "rgba(255, 255, 255, 0.8)",
+    "contentTertiaryColor": "rgba(255, 255, 255, 0.72)",
+    "contentInversePrimaryColor": "#171717",
+    "contentAlwaysLightPrimaryColor": "#FFFFFF",
+    "contentAlwaysLightSecondaryColor": "rgba(255, 255, 255, 0.72)",
+    "contentLinkColor": "#569DF3",
+    "contentPositiveColor": "#3AAE92",
+    "contentWarningColor": "#E9A43F",
+    "contentNegativeColor": "#EE505A",
+    "backgroundPrimaryColor": "#08090A",
+    "backgroundSecondaryColor": "#1F1F24",
+    "backgroundTertiaryColor": "rgba(255, 255, 255, 0.06)",
+    "backgroundInversePrimaryColor": "#ffffff",
+    "backgroundAlwaysLightColor": "#FFFFFF",
+    "backgroundPositiveColor": "rgba(58, 174, 146, 0.12)",
+    "backgroundWarningColor": "rgba(233, 164, 63, 0.12)",
+    "backgroundNegativeColor": "rgba(238, 80, 90, 0.12)",
+    "backgroundElevatedColor": "rgba(47, 48, 51, 0.96)",
+    "borderSecondaryColor": "rgba(255, 255, 255, 0.6)",
+    "borderTertiaryColor": "rgba(255, 255, 255, 0.08)",
+    "borderPositiveColor": "rgba(58, 174, 146, 0.4)",
+    "borderWarningColor": "rgba(233, 164, 63, 0.6)",
+    "borderNegativeColor": "rgba(250, 45, 45, 0.6)",
+    "inputPrimaryColor": "#FFFFFF",
+    "inputSecondaryColor": "rgba(255, 255, 255, 0.28)",
+    "inputInversePrimaryColor": "#08090A",
+    "inputAlwaysWhiteColor": "#FFFFFF",
+    "inputEclipseColor": "rgba(255, 255, 255, 0.08)",
+    "inputIlluminationColor": "rgba(8, 9, 10, 0.08)",
+    "inputPositiveColor": "#3AAE92",
+    "inputNegativeColor": "#EE505A",
+    "answerBackgroundColor": "#08090A",
+    "answerBorderColor": "#1F1F24",
+    "answerBackgroundActiveColor": "#1F1F24",
+    "answerBorderActiveColor": "#1F1F24",
+    "answerInputColor": "#FFFFFF",
+    "onboardingProgressColor": "#FFFFFF",
+    "backgroundSurfaceColor": "#1F1F24",
+    "answerOptionRadius": "16",
+    "backgroundImage": "",
+    "font": "Gilroy",
+    "secondaryFont": "Inter",
+    "logo": "xes6cwbzspzm44eimw9u",
+    "buttonRadius": "24"
+  },
+  "firstPage": [
+    {
+      "id": 137658,
+      "pageId": 2934,
+      "type": "generated",
+      "title": "First Page Type",
+      "value": "four_cards"
+    },
+    {
+      "id": 137659,
+      "pageId": 2934,
+      "type": "text",
+      "title": "First Page Title",
+      "value": "CALISTHENICS WORKOUT PLAN"
+    },
+    {
+      "id": 137660,
+      "pageId": 2934,
+      "type": "text",
+      "title": "First Page Subtitle",
+      "value": "ACCORDING TO YOUR [b| AGE]"
+    },
+    {
+      "id": 137661,
+      "pageId": 2934,
+      "type": "text",
+      "title": "First Page Note",
+      "value": "[span|1-MINUTE QUIZ]"
+    },
+    {
+      "id": 137662,
+      "pageId": 2934,
+      "type": "text",
+      "title": "First Page Browser Tab Title",
+      "value": "Calisthenics Workout Plan"
+    },
+    {
+      "id": 137663,
+      "pageId": 2934,
+      "type": "content-key",
+      "title": "Content key",
+      "value": ""
+    },
+    {
+      "id": 137664,
+      "pageId": 2934,
+      "type": "image",
+      "title": "Card 1 Image",
+      "value": "pc4vyvafxkzzfjk56bpz"
+    },
+    {
+      "id": 137665,
+      "pageId": 2934,
+      "type": "text",
+      "title": "Card 1 footer",
+      "value": "Age: 18-29"
+    },
+    {
+      "id": 137666,
+      "pageId": 2934,
+      "type": "content-value",
+      "title": "Card 1 content-value",
+      "value": null
+    },
+    {
+      "id": 137667,
+      "pageId": 2934,
+      "type": "image",
+      "title": "Card 2 Image",
+      "value": "efdr28xtzp56p5ubzysl"
+    },
+    {
+      "id": 137668,
+      "pageId": 2934,
+      "type": "text",
+      "title": "Card 2 footer",
+      "value": "Age: 30-39"
+    },
+    {
+      "id": 137669,
+      "pageId": 2934,
+      "type": "content-value",
+      "title": "Card 2 content-value",
+      "value": null
+    },
+    {
+      "id": 137670,
+      "pageId": 2934,
+      "type": "image",
+      "title": "Card 3 Image",
+      "value": "fqx9e8tdjhwlbulk7hk7"
+    },
+    {
+      "id": 137671,
+      "pageId": 2934,
+      "type": "text",
+      "title": "Card 3 footer",
+      "value": "Age: 40-49"
+    },
+    {
+      "id": 137672,
+      "pageId": 2934,
+      "type": "content-value",
+      "title": "Card 3 content-value",
+      "value": null
+    },
+    {
+      "id": 137673,
+      "pageId": 2934,
+      "type": "image",
+      "title": "Card 4 Image",
+      "value": "mdpivry7ju4gjwmuaep4"
+    },
+    {
+      "id": 137674,
+      "pageId": 2934,
+      "type": "text",
+      "title": "Card 4 footer",
+      "value": "Age: 50+"
+    },
+    {
+      "id": 137675,
+      "pageId": 2934,
+      "type": "content-value",
+      "title": "Card 4 content-value",
+      "value": null
+    },
+    {
+      "id": 137676,
+      "pageId": 2934,
+      "type": "text",
+      "title": "Event action for analytics",
+      "value": "/first_page"
+    },
+    {
+      "id": 137677,
+      "pageId": 2934,
+      "type": "image",
+      "title": "First Page Background Image",
+      "value": null
+    },
+    {
+      "id": 137678,
+      "pageId": 2934,
+      "type": "text",
+      "title": "Automation ID",
+      "value": "firstPage_2934"
+    },
+    {
+      "id": 137679,
+      "pageId": 2934,
+      "type": "text",
+      "title": "Legal docs consent description",
+      "value": "By [b|choosing your age and continuing] you agree to our [Terms of Service|/terms] | [Privacy Policy|/privacy-policy] [Impressum|/impressum][br]Please review before continuing"
+    },
+    {
+      "id": 137680,
+      "pageId": 2934,
+      "type": "text",
+      "title": "Custom Url",
+      "value": "/first-page-brand-palette"
+    }
+  ],
+  "redirectIosOnWebEnabled": false,
+  "structureGroups": {
+    "0": [],
+    "1": [
+      {
+        "id": 5306,
+        "gender": 1,
+        "startsFrom": 1,
+        "name": "My Profile"
+      },
+      {
+        "id": 5307,
+        "gender": 1,
+        "startsFrom": 10,
+        "name": "Activity"
+      },
+      {
+        "id": 5308,
+        "gender": 1,
+        "startsFrom": 22,
+        "name": "Lifestyle & Habits"
+      },
+      {
+        "id": 5309,
+        "gender": 1,
+        "startsFrom": 32,
+        "name": "Weight Goals"
+      }
+    ]
+  }
+}

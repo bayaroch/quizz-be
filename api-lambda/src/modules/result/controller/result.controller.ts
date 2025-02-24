@@ -70,4 +70,20 @@ export class ResultController {
   async checkPayment(@Query('result_id') resultId: string) {
     return this.qpayService.checkPaymentStatus(resultId);
   }
+
+  // Transaction list
+  @Get('transaction')
+  @Roles(Role.ADMIN)
+  findAllTransaction(
+    @Query('limit') limit: number,
+    @Query('lastKey') lastKey: string,
+  ) {
+    return this.resultService.findAllTransaction(limit, lastKey);
+  }
+
+  @Get('transaction/:id')
+  @Roles(Role.ADMIN)
+  getTransactionDetail(@Param('id') resultId: string) {
+    return this.resultService.getTransactionDetail(resultId);
+  }
 }

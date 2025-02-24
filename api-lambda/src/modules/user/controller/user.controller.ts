@@ -6,6 +6,7 @@ import { UserService } from '@modules/user/service/user.service';
 import { CurrentUser } from '../../auth/decorators/user.decorator';
 import { Role } from '../../auth/enums/role.enum';
 import { UserInput } from '../model/user-input';
+import { User } from '../model/user.model';
 
 @Controller('user')
 export class UserController {
@@ -14,12 +15,14 @@ export class UserController {
   // User endpont
   @Get('profile')
   @Roles(Role.USER)
-  async getProfile(@CurrentUser() currentUserDto: UserInput) {
+  async getProfile(
+    @CurrentUser() currentUserDto: UserInput,
+  ): Promise<{ data: User }> {
     const existingUser = await this.userService.getExistingUser(
       currentUserDto.uuid,
     );
 
-    return existingUser;
+    return { data: existingUser };
   }
 
   @HttpCode(HttpStatus.OK)
