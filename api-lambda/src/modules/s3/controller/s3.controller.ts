@@ -11,7 +11,10 @@ export class S3Controller {
     @Query('fileName') fileName: string,
     @Query('fileType') fileType: string,
   ) {
-    const url = await this.s3Service.getPresignedUrl(fileName, fileType);
-    return { url };
+    const presignedUrl = await this.s3Service.getPresignedUrl(
+      fileName,
+      fileType,
+    );
+    return presignedUrl;
   }
 }
