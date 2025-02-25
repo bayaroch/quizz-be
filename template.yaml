@@ -261,12 +261,12 @@ Resources:
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
 
-  # CodeBuild Project
-  CodeBuildProject:
+  # CodeBuild Project (Renamed)
+  CodeBuildProjectV2:
     Type: AWS::CodeBuild::Project
     Properties:
-      Name: !Sub "${AWS::StackName}-CodeBuild"
-      ServiceRole: !GetAtt CodeBuildRole.Arn
+      Name: !Sub "${AWS::StackName}-CodeBuild-V2"
+      ServiceRole: !GetAtt CodeBuildRoleV2.Arn
       Artifacts:
         Type: CODEPIPELINE
       Environment:
@@ -285,8 +285,8 @@ Resources:
         BuildSpec: buildspec.yml
       TimeoutInMinutes: 60
 
-  # CodeBuild IAM Role
-  CodeBuildRole:
+  # CodeBuild IAM Role (Renamed)
+  CodeBuildRoleV2:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -314,12 +314,12 @@ Resources:
                 Resource:
                   - !GetAtt ApiLambdaRole.Arn
 
-  # CodePipeline
-  CodePipeline:
+  # CodePipeline (Renamed)
+  CodePipelineV2:
     Type: AWS::CodePipeline::Pipeline
     Properties:
-      Name: !Sub "${AWS::StackName}-Pipeline"
-      RoleArn: !GetAtt CodePipelineRole.Arn
+      Name: !Sub "${AWS::StackName}-Pipeline-V2"
+      RoleArn: !GetAtt CodePipelineRoleV2.Arn
       ArtifactStore:
         Type: S3
         Location: !Ref ApiLambdaBucket
@@ -352,11 +352,11 @@ Resources:
               OutputArtifacts:
                 - Name: BuildArtifact
               Configuration:
-                ProjectName: !Ref CodeBuildProject
+                ProjectName: !Ref CodeBuildProjectV2
               RunOrder: 1
 
-  # CodePipeline IAM Role
-  CodePipelineRole:
+  # CodePipeline IAM Role (Renamed)
+  CodePipelineRoleV2:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -384,7 +384,7 @@ Resources:
                 Action:
                   - codebuild:BatchGetBuilds
                   - codebuild:StartBuild
-                Resource: !GetAtt CodeBuildProject.Arn
+                Resource: !GetAtt CodeBuildProjectV2.Arn
               - Effect: Allow
                 Action:
                   - codestar-connections:UseConnection
@@ -407,4 +407,4 @@ Outputs:
   ResultBucketName:
     Value: !Ref ResultBucket
   PipelineUrl:
-    Value: !Sub "https://${AWS::Region}.console.aws.amazon.com/codesuite/codepipeline/pipelines/${CodePipeline}/view?region=${AWS::Region}"
+    Value: !Sub "https://${AWS::Region}.console.aws.amazon.com/codesuite/codepipeline/pipelines/${CodePipelineV2}/view?region=${AWS::Region}"
