@@ -274,4 +274,4 @@ Outputs:
   ResultBucketName:
     Value: !Ref ResultBucket
   PipelineUrl:
-    Value: !Sub "https://${AWS::Region}.console.aws.amazon.com/codesuite/codepipeline/pipelines/${CodePipeline}/view?region=${AWS::Region}"
+    Value: !Sub "https://${AWS::Region}.console.aws.amazonaws.com/codesuite/codepipeline/pipelines/${AWS::StackName}-Pipeline/view?region=${AWS::Region}"
