@@ -132,6 +132,7 @@ export class UserService extends TransactionSupport {
     };
   }
 
+  // user list
   async findAll(
     limit: number,
     lastKey?: string,
