@@ -207,7 +207,6 @@ Resources:
       Stage: !Ref Stage
 
   # 6. CloudFront Distribution
-  # Add Origin Access Identity
   CloudFrontDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
@@ -216,15 +215,15 @@ Resources:
           - DomainName: !GetAtt ImagesBucket.RegionalDomainName
             Id: ImagesOrigin
             S3OriginConfig:
-              OriginAccessIdentity: "" # Public access for now; replace with manual OAI ARN if needed
+              OriginAccessIdentity: ""
           - DomainName: !GetAtt QuizBucket.RegionalDomainName
             Id: QuizOrigin
             S3OriginConfig:
-              OriginAccessIdentity: "" # Public access for now
+              OriginAccessIdentity: ""
           - DomainName: !GetAtt ResultBucket.RegionalDomainName
             Id: ResultOrigin
             S3OriginConfig:
-              OriginAccessIdentity: "" # Public access for now
+              OriginAccessIdentity: ""
         Enabled: true
         DefaultCacheBehavior:
           TargetOriginId: ImagesOrigin
@@ -262,6 +261,140 @@ Resources:
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
 
+  # CodeBuild Project
+  CodeBuildProject:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Name: !Sub "${AWS::StackName}-CodeBuild"
+      ServiceRole: !GetAtt CodeBuildRole.Arn
+      Artifacts:
+        Type: CODEPIPELINE
+      Environment:
+        Type: LINUX_CONTAINER
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/amazonlinux2-x86_64-standard:5.0
+        EnvironmentVariables:
+          - Name: STAGE
+            Value: !Ref Stage
+          - Name: AWS_REGION
+            Value: !Ref AWS::Region
+          - Name: STACK_NAME
+            Value: !Ref AWS::StackName
+      Source:
+        Type: CODEPIPELINE
+        BuildSpec: buildspec.yml
+      TimeoutInMinutes: 60
+
+  # CodeBuild IAM Role
+  CodeBuildRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: codebuild.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess
+        - arn:aws:iam::aws:policy/AmazonSSMFullAccess
+        - arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator
+        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
+      Policies:
+        - PolicyName: CodeBuildCustomPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - iam:PassRole
+                Resource:
+                  - !GetAtt ApiLambdaRole.Arn
+
+  # CodePipeline
+  CodePipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      Name: !Sub "${AWS::StackName}-Pipeline"
+      RoleArn: !GetAtt CodePipelineRole.Arn
+      ArtifactStore:
+        Type: S3
+        Location: !Ref ApiLambdaBucket
+      Stages:
+        - Name: Source
+          Actions:
+            - Name: GitHubSource
+              ActionTypeId:
+                Category: Source
+                Owner: AWS
+                Provider: CodeStarSourceConnection
+                Version: "1"
+              OutputArtifacts:
+                - Name: SourceArtifact
+              Configuration:
+                ConnectionArn: !Ref GitHubConnectionArn
+                FullRepositoryId: !Sub "${GitHubOwner}/${GitHubRepo}"
+                BranchName: !Ref GitHubBranch
+              RunOrder: 1
+        - Name: Build
+          Actions:
+            - Name: Build
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Provider: CodeBuild
+                Version: "1"
+              InputArtifacts:
+                - Name: SourceArtifact
+              OutputArtifacts:
+                - Name: BuildArtifact
+              Configuration:
+                ProjectName: !Ref CodeBuildProject
+              RunOrder: 1
+
+  # CodePipeline IAM Role
+  CodePipelineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: codepipeline.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: CodePipelinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:GetBucket*
+                  - s3:List*
+                Resource:
+                  - !Sub "${ApiLambdaBucket.Arn}"
+                  - !Sub "${ApiLambdaBucket.Arn}/*"
+              - Effect: Allow
+                Action:
+                  - codebuild:BatchGetBuilds
+                  - codebuild:StartBuild
+                Resource: !GetAtt CodeBuildProject.Arn
+              - Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: !Ref GitHubConnectionArn
+              - Effect: Allow
+                Action:
+                  - cloudfront:GetDistribution
+                  - cloudfront:ListDistributions
+                Resource: "*"
+
 Outputs:
   ApiUrl:
     Value: !Sub "https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/${Stage}/"
@@ -274,4 +407,4 @@ Outputs:
   ResultBucketName:
     Value: !Ref ResultBucket
   PipelineUrl:
-    Value: !Sub "https://${AWS::Region}.console.aws.amazonaws.com/codesuite/codepipeline/pipelines/${AWS::StackName}-Pipeline/view?region=${AWS::Region}"
+    Value: !Sub "https://${AWS::Region}.console.aws.amazon.com/codesuite/codepipeline/pipelines/${CodePipeline}/view?region=${AWS::Region}"
