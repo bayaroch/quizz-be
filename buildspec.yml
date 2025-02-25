@@ -21,8 +21,11 @@ phases:
       - sam build
       - echo "Copying dist directory..."
       - cp -r ./api-lambda/dist ./.aws-sam/build/ApiLambdaFunction/
+  post_build:
+    commands:
       - echo "Packaging SAM template..."
       - sam package --output-template-file packaged.yaml --s3-bucket $STACK_NAME-api-lambda-$AWS_REGION-$AWS_ACCOUNT_ID
 artifacts:
   files:
     - packaged.yaml
+  discard-paths: no
