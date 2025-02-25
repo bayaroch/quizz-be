@@ -23,9 +23,9 @@ phases:
       - cp -r ./api-lambda/dist ./.aws-sam/build/ApiLambdaFunction/
   post_build:
     commands:
-      - echo "Packaging SAM template..."
-      - sam package --output-template-file packaged.yaml --s3-bucket $STACK_NAME-api-lambda-$AWS_REGION-$AWS_ACCOUNT_ID
+      - echo "Running SAM deploy..."
+      - sam deploy --stack-name $STACK_NAME --region $AWS_REGION --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --no-confirm-changeset --no-fail-on-empty-changeset
 artifacts:
   files:
-    - packaged.yaml
-  discard-paths: no
+    - .aws-sam/**/*
+  discard-paths:

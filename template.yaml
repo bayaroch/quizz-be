@@ -314,7 +314,7 @@ Resources:
                 Resource:
                   - !GetAtt ApiLambdaRole.Arn
 
-  # CodePipeline (Renamed)
+  # CodePipeline (Renamed, Reverted to Original Stages)
   CodePipelineV2:
     Type: AWS::CodePipeline::Pipeline
     Properties:
