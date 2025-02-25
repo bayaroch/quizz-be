@@ -28,4 +28,4 @@ phases:
 artifacts:
   files:
     - .aws-sam/**/*
-  discard-paths:
+  discard-paths: yes
