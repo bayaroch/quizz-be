@@ -1,4 +1,4 @@
-import { Controller, Get, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Get, HttpCode, HttpStatus, Query } from '@nestjs/common';
 
 import { Roles } from '@modules/auth/decorators/roles.decorator';
 import { UserService } from '@modules/user/service/user.service';
@@ -30,5 +30,11 @@ export class UserController {
   @Roles(Role.USER, Role.ADMIN)
   getAppInit(@CurrentUser() currentUserDto: UserInput) {
     return this.userService.getAppInit(currentUserDto);
+  }
+
+  @Get()
+  @Roles(Role.ADMIN)
+  findAll(@Query('limit') limit: number, @Query('lastKey') lastKey: string) {
+    return this.userService.findAll(limit, lastKey);
   }
 }
