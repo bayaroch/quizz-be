@@ -29,18 +29,6 @@ Parameters:
   AwsRegionParameter:
     Type: String
     Default: "/param/quiz-stack/AWS_REGION"
-  GitHubOwner:
-    Type: String
-    Default: bayaroch
-  GitHubRepo:
-    Type: String
-    Default: quizz-be
-  GitHubBranch:
-    Type: String
-    Default: main
-  GitHubConnectionArn:
-    Type: String
-    Default: "arn:aws:codeconnections:us-east-1:535002852577:connection/e490710f-c569-428d-9f78-3076307f4f7a"
 
 Resources:
   # 1. S3 Buckets
@@ -261,140 +249,6 @@ Resources:
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
 
-  # CodeBuild Project (Renamed to V3)
-  CodeBuildProjectV3:
-    Type: AWS::CodeBuild::Project
-    Properties:
-      Name: !Sub "${AWS::StackName}-CodeBuild-V3"
-      ServiceRole: !GetAtt CodeBuildRoleV3.Arn
-      Artifacts:
-        Type: CODEPIPELINE
-      Environment:
-        Type: LINUX_CONTAINER
-        ComputeType: BUILD_GENERAL1_SMALL
-        Image: aws/codebuild/amazonlinux2-x86_64-standard:5.0
-        EnvironmentVariables:
-          - Name: STAGE
-            Value: !Ref Stage
-          - Name: AWS_REGION
-            Value: !Ref AWS::Region
-          - Name: STACK_NAME
-            Value: !Ref AWS::StackName
-      Source:
-        Type: CODEPIPELINE
-        BuildSpec: buildspec.yml
-      TimeoutInMinutes: 60
-
-  # CodeBuild IAM Role (Renamed to V3)
-  CodeBuildRoleV3:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service: codebuild.amazonaws.com
-            Action: sts:AssumeRole
-      ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-        - arn:aws:iam::aws:policy/AWSLambda_FullAccess
-        - arn:aws:iam::aws:policy/AmazonSSMFullAccess
-        - arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator
-        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
-      Policies:
-        - PolicyName: CodeBuildCustomPolicy
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: Allow
-                Action:
-                  - iam:PassRole
-                Resource:
-                  - !GetAtt ApiLambdaRole.Arn
-
-  # CodePipeline (Renamed to V3)
-  CodePipelineV3:
-    Type: AWS::CodePipeline::Pipeline
-    Properties:
-      Name: !Sub "${AWS::StackName}-Pipeline-V3"
-      RoleArn: !GetAtt CodePipelineRoleV3.Arn
-      ArtifactStore:
-        Type: S3
-        Location: !Ref ApiLambdaBucket
-      Stages:
-        - Name: Source
-          Actions:
-            - Name: GitHubSource
-              ActionTypeId:
-                Category: Source
-                Owner: AWS
-                Provider: CodeStarSourceConnection
-                Version: "1"
-              OutputArtifacts:
-                - Name: SourceArtifact
-              Configuration:
-                ConnectionArn: !Ref GitHubConnectionArn
-                FullRepositoryId: !Sub "${GitHubOwner}/${GitHubRepo}"
-                BranchName: !Ref GitHubBranch
-              RunOrder: 1
-        - Name: Build
-          Actions:
-            - Name: Build
-              ActionTypeId:
-                Category: Build
-                Owner: AWS
-                Provider: CodeBuild
-                Version: "1"
-              InputArtifacts:
-                - Name: SourceArtifact
-              OutputArtifacts:
-                - Name: BuildArtifact
-              Configuration:
-                ProjectName: !Ref CodeBuildProjectV3
-              RunOrder: 1
-
-  # CodePipeline IAM Role (Renamed to V3)
-  CodePipelineRoleV3:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service: codepipeline.amazonaws.com
-            Action: sts:AssumeRole
-      Policies:
-        - PolicyName: CodePipelinePolicy
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: Allow
-                Action:
-                  - s3:GetObject
-                  - s3:PutObject
-                  - s3:GetBucket*
-                  - s3:List*
-                Resource:
-                  - !Sub "${ApiLambdaBucket.Arn}"
-                  - !Sub "${ApiLambdaBucket.Arn}/*"
-              - Effect: Allow
-                Action:
-                  - codebuild:BatchGetBuilds
-                  - codebuild:StartBuild
-                Resource: !GetAtt CodeBuildProjectV3.Arn
-              - Effect: Allow
-                Action:
-                  - codestar-connections:UseConnection
-                Resource: !Ref GitHubConnectionArn
-              - Effect: Allow
-                Action:
-                  - cloudfront:GetDistribution
-                  - cloudfront:ListDistributions
-                Resource: "*"
-
 Outputs:
   ApiUrl:
     Value: !Sub "https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/${Stage}/"
@@ -406,5 +260,3 @@ Outputs:
     Value: !Ref QuizBucket
   ResultBucketName:
     Value: !Ref ResultBucket
-  PipelineUrl:
-    Value: !Sub "https://${AWS::Region}.console.aws.amazon.com/codesuite/codepipeline/pipelines/${CodePipelineV3}/view?region=${AWS::Region}"
