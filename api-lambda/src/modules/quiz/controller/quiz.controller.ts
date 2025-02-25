@@ -65,3 +65,4 @@ export class QuizController {
     return this.quizService.findOneSeo(id);
   }
 }
+//test deploy
