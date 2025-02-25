@@ -207,6 +207,13 @@ Resources:
       Stage: !Ref Stage
 
   # 6. CloudFront Distribution
+  # Add Origin Access Identity
+  CloudFrontOAI:
+    Type: AWS::CloudFront::OriginAccessIdentity
+    Properties:
+      Comment: !Sub "OAI for ${AWS::StackName} CloudFront distribution"
+
+  # Updated CloudFront Distribution
   CloudFrontDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
@@ -215,15 +222,15 @@ Resources:
           - DomainName: !GetAtt ImagesBucket.RegionalDomainName
             Id: ImagesOrigin
             S3OriginConfig:
-              OriginAccessIdentity: ""
+              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOAI}"
           - DomainName: !GetAtt QuizBucket.RegionalDomainName
             Id: QuizOrigin
             S3OriginConfig:
-              OriginAccessIdentity: ""
+              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOAI}"
           - DomainName: !GetAtt ResultBucket.RegionalDomainName
             Id: ResultOrigin
             S3OriginConfig:
-              OriginAccessIdentity: ""
+              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOAI}"
         Enabled: true
         DefaultCacheBehavior:
           TargetOriginId: ImagesOrigin
@@ -261,6 +268,42 @@ Resources:
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
 
+  # Add S3 Bucket Policies
+  ImagesBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ImagesBucket
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CloudFrontOAI}"
+            Action: s3:GetObject
+            Resource: !Sub "${ImagesBucket.Arn}/*"
+
+  QuizBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref QuizBucket
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CloudFrontOAI}"
+            Action: s3:GetObject
+            Resource: !Sub "${QuizBucket.Arn}/*"
+
+  ResultBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ResultBucket
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CloudFrontOAI}"
+            Action: s3:GetObject
+            Resource: !Sub "${ResultBucket.Arn}/*"
   # CodeBuild Project
   CodeBuildProject:
     Type: AWS::CodeBuild::Project
@@ -297,12 +340,12 @@ Resources:
               Service: codebuild.amazonaws.com
             Action: sts:AssumeRole
       ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess  # Full CloudFormation access (includes SAM-managed stacks)
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess           # Full S3 access for all buckets
-        - arn:aws:iam::aws:policy/AWSLambda_FullAccess         # Full Lambda access
-        - arn:aws:iam::aws:policy/AmazonSSMFullAccess          # Full SSM access for parameters
+        - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess # Full CloudFormation access (includes SAM-managed stacks)
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess # Full S3 access for all buckets
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess # Full Lambda access
+        - arn:aws:iam::aws:policy/AmazonSSMFullAccess # Full SSM access for parameters
         - arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator # Full API Gateway access
-        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess     # Full CloudWatch Logs access
+        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess # Full CloudWatch Logs access
       Policies:
         - PolicyName: CodeBuildCustomPolicy
           PolicyDocument:
@@ -355,7 +398,23 @@ Resources:
               Configuration:
                 ProjectName: !Ref CodeBuildProject
               RunOrder: 1
-
+        - Name: Deploy
+          Actions:
+            - Name: DeployToCloudFormation
+              ActionTypeId:
+                Category: Deploy
+                Owner: AWS
+                Provider: CloudFormation
+                Version: "1"
+              InputArtifacts:
+                - Name: BuildArtifact
+              Configuration:
+                ActionMode: CREATE_UPDATE
+                StackName: !Ref AWS::StackName
+                TemplatePath: "BuildArtifact::template.yml" # Adjust if your build outputs a different file
+                Capabilities: CAPABILITY_IAM CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND
+                RoleArn: !GetAtt CodeBuildRole.Arn # Reuse CodeBuildRole or create a dedicated CFN role
+              RunOrder: 1
   # CodePipeline IAM Role
   CodePipelineRole:
     Type: AWS::IAM::Role
