@@ -36,7 +36,7 @@ export class QuizService {
         data: newQuiz,
       };
     } catch (error) {
-      console.log('error');
+      console.log('error:', error);
       if (error instanceof HttpException) {
         throw error;
       }
