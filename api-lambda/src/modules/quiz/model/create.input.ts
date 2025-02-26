@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 
 export class CreateQuizInput {
   @IsString()
@@ -25,6 +25,6 @@ export class CreateQuizInput {
   @IsString()
   tag: string;
 
-  @IsString()
+  @IsNumber()
   price: number;
 }
